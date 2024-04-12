@@ -11,6 +11,7 @@
 		214462FB2BC96FF300C29F51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214462FA2BC96FF300C29F51 /* ContentView.swift */; };
 		214462FD2BC96FF500C29F51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 214462FC2BC96FF500C29F51 /* Assets.xcassets */; };
 		214463002BC96FF500C29F51 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 214462FF2BC96FF500C29F51 /* Preview Assets.xcassets */; };
+		214463092BC971A900C29F51 /* MemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214463082BC971A900C29F51 /* MemoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,8 @@
 		214462FA2BC96FF300C29F51 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		214462FC2BC96FF500C29F51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		214462FF2BC96FF500C29F51 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		214463082BC971A900C29F51 /* MemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoModel.swift; sourceTree = "<group>"; };
+		2144630A2BC9761E00C29F51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +54,7 @@
 		214462F72BC96FF300C29F51 /* NC1 */ = {
 			isa = PBXGroup;
 			children = (
+				2144630A2BC9761E00C29F51 /* Info.plist */,
 				214463072BC9702400C29F51 /* Model */,
 				214463062BC9701B00C29F51 /* View */,
 				214462F82BC96FF300C29F51 /* NC1App.swift */,
@@ -79,6 +83,7 @@
 		214463072BC9702400C29F51 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				214463082BC971A900C29F51 /* MemoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 			files = (
 				214462FB2BC96FF300C29F51 /* ContentView.swift in Sources */,
 				214462F92BC96FF300C29F51 /* NC1App.swift in Sources */,
+				214463092BC971A900C29F51 /* MemoModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +297,8 @@
 				DEVELOPMENT_TEAM = F5WP2FDW4U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NC1/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -320,6 +328,8 @@
 				DEVELOPMENT_TEAM = F5WP2FDW4U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NC1/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
