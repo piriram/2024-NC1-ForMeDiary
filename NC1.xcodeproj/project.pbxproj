@@ -54,11 +54,11 @@
 		214462F72BC96FF300C29F51 /* NC1 */ = {
 			isa = PBXGroup;
 			children = (
-				2144630A2BC9761E00C29F51 /* Info.plist */,
-				214463072BC9702400C29F51 /* Model */,
 				214463062BC9701B00C29F51 /* View */,
+				214463072BC9702400C29F51 /* Model */,
+				2144630B2BC979D700C29F51 /* ViewModel */,
 				214462F82BC96FF300C29F51 /* NC1App.swift */,
-				214462FA2BC96FF300C29F51 /* ContentView.swift */,
+				2144630A2BC9761E00C29F51 /* Info.plist */,
 				214462FC2BC96FF500C29F51 /* Assets.xcassets */,
 				214462FE2BC96FF500C29F51 /* Preview Content */,
 			);
@@ -76,6 +76,7 @@
 		214463062BC9701B00C29F51 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				214462FA2BC96FF300C29F51 /* ContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -86,6 +87,13 @@
 				214463082BC971A900C29F51 /* MemoModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2144630B2BC979D700C29F51 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
