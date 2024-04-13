@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct MemoDetailView: View {
+    var memo: MemoModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(memo.content)
+                .padding()
+            Spacer()
+        }
+        .navigationBarTitle("상세보기")
     }
 }
 
-#Preview {
-    MemoDetailView()
-}
+

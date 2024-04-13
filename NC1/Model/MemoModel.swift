@@ -13,7 +13,7 @@ struct MemoModel: Hashable, Identifiable ,Codable {
     var time: String?
     var emotion : String?
     var content: String
-
+    
 }
 
 class MemoViewModel:ObservableObject{

@@ -11,6 +11,7 @@ struct RootView: View {
     var body: some View {
         NavigationView {
             VStack {
+                ListView()
                 Spacer()
                 NavigationLink(destination: MemoCreateView()) {
                     Image(systemName: "plus.circle.fill")
@@ -19,7 +20,9 @@ struct RootView: View {
                 }
                 .padding()
             }
-//            .navigationBarTitle("Memo List")
+            .navigationBarTitle("Memo List")
+            
+            
         }
     }
 }

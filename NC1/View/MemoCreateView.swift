@@ -9,31 +9,38 @@ import SwiftUI
 
 struct MemoCreateView: View {
     @State var content = ""
-    @ObservedObject var MemoVM = MemoViewModel()
+    @EnvironmentObject var memoViewModel : MemoViewModel
+    @Environment(\.presentationMode) var presentationMode
+    @State var showingAlert = false
+    
     var body: some View {
         VStack {
-//            Spacer()
+            
             VStack{
-                HStack(spacing: 16) {
+                HStack() {
                     Image(systemName: "lessthan")
+                        .padding()
+                    Spacer()
                     Image(systemName: "calendar")
+                    
                     
                     Text("Today")
                         .font(Font.custom("Manrope", size: 18))
                         .foregroundColor(.black)
-                    
+                    Spacer()
                     Image(systemName: "greaterthan")
+                        .padding()
                 }
                 .padding(.vertical,50)
-                .frame(width: 328, height: 57)
+                .frame(height: 60)
                 .background(.white)
-                .cornerRadius(8)
+                .cornerRadius(20)
                 .shadow(
                     color: Color(red: 0.11, green: 0.23, blue: 0.35, opacity: 0.05), radius: 20, y: 8
                 )
             }.padding(.vertical,30)
             
-            TextEditor(text: $MemoVM.tmpMemo.content)
+            TextEditor(text: $memoViewModel.tmpMemo.content)
                 .lineSpacing(10)
                 .disableAutocorrection(true)
                 .padding(30)
@@ -43,13 +50,17 @@ struct MemoCreateView: View {
                 )
                 .frame(maxHeight:300)
             Spacer()
+            
             Button(action: {
-                let currentDate = Date()
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                let dateString = dateFormatter.string(from: currentDate)
-                self.MemoVM.tmpMemo.time = dateString
-                print(MemoVM.tmpMemo)
+                //TODO: 함수로 묶기
+                if memoViewModel.tmpMemo.content != ""{
+                    saveData()
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+                else{
+                    showingAlert = true
+                }
+                
             }, label: {
                 Text("Save")
                     .padding(.vertical,10)
@@ -63,9 +74,26 @@ struct MemoCreateView: View {
             
         }
         .padding()
+        .onAppear(){
+            print("hi")
+        }
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text("내용을 입력해주세요."), message: nil,
+                  dismissButton: .default(Text("넹")))
+        }
         
         
         
+    }
+    func saveData(){
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateString = dateFormatter.string(from: currentDate)
+        self.memoViewModel.tmpMemo.time = dateString
+        print(memoViewModel.tmpMemo)
+        memoViewModel.memoHistory.append(memoViewModel.tmpMemo)
+        memoViewModel.tmpMemo = MemoModel(content: "")
     }
 }
 
