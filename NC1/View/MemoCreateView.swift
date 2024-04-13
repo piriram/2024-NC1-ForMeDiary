@@ -12,6 +12,27 @@ struct MemoCreateView: View {
     @ObservedObject var MemoVM = MemoViewModel()
     var body: some View {
         VStack {
+//            Spacer()
+            VStack{
+                HStack(spacing: 16) {
+                    Image(systemName: "lessthan")
+                    Image(systemName: "calendar")
+                    
+                    Text("Today")
+                        .font(Font.custom("Manrope", size: 18))
+                        .foregroundColor(.black)
+                    
+                    Image(systemName: "greaterthan")
+                }
+                .padding(.vertical,50)
+                .frame(width: 328, height: 57)
+                .background(.white)
+                .cornerRadius(8)
+                .shadow(
+                    color: Color(red: 0.11, green: 0.23, blue: 0.35, opacity: 0.05), radius: 20, y: 8
+                )
+            }.padding(.vertical,30)
+            
             TextEditor(text: $MemoVM.tmpMemo.content)
                 .lineSpacing(10)
                 .disableAutocorrection(true)
@@ -21,7 +42,7 @@ struct MemoCreateView: View {
                         .stroke(Color.gray, lineWidth: 1)
                 )
                 .frame(maxHeight:300)
-            
+            Spacer()
             Button(action: {
                 let currentDate = Date()
                 let dateFormatter = DateFormatter()
