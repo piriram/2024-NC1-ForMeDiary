@@ -10,9 +10,13 @@ import Foundation
 struct MemoModel: Hashable, Identifiable ,Codable {
     
     var id = UUID()
-    var name: String
-    var address: String
-    var url: String
-    var image: String
+    var time: String?
+    var emotion : String?
+    var content: String
 
+}
+
+class MemoViewModel:ObservableObject{
+    @Published var tmpMemo : MemoModel = MemoModel(content: "")
+    @Published var memoHistory : [MemoModel] = []
 }

@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
-import UIKit
 
 struct MemoContentView: View {
     @State var content = ""
+    @ObservedObject var MemoVM = MemoViewModel()
     var body: some View {
         VStack {
-           TextEditor(text: $content)
+            TextEditor(text: $MemoVM.tmpMemo.content)
              .lineSpacing(10)
              .disableAutocorrection(true)
              .padding()
