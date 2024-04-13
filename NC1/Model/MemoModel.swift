@@ -10,8 +10,9 @@ import Foundation
 struct MemoModel: Hashable, Identifiable ,Codable {
     
     var id = UUID()
-    var emotion: String
-    var content: String
-    var date: String
+    var name: String
+    var address: String
+    var url: String
+    var image: String
 
 }
