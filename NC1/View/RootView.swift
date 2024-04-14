@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RootView: View {
     var body: some View {
+        @EnvironmentObject var memo : MemoViewModel
         NavigationView {
             VStack {
                 ListView()
@@ -24,6 +25,8 @@ struct RootView: View {
             
             
         }
+//        
+    
     }
 }
 

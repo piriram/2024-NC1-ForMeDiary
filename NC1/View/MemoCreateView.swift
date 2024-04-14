@@ -12,34 +12,31 @@ struct MemoCreateView: View {
     @EnvironmentObject var memoViewModel : MemoViewModel
     @Environment(\.presentationMode) var presentationMode
     @State var showingAlert = false
+    let emojis = ["face.smiling", "questionmark.circle", "exclamationmark.circle", "poweroutlet.type.f"]
     
     var body: some View {
-        VStack {
+        VStack() {
             
-            VStack{
-                HStack() {
-                    Image(systemName: "lessthan")
-                        .padding()
-                    Spacer()
-                    Image(systemName: "calendar")
+            CreateTopView()
+            Spacer()
+            HStack(spacing: 10) {
+                ForEach(emojis, id: \.self) { emoji in
                     
-                    
-                    Text("Today")
-                        .font(Font.custom("Manrope", size: 18))
-                        .foregroundColor(.black)
-                    Spacer()
-                    Image(systemName: "greaterthan")
-                        .padding()
+                    Button(action: {
+                        // 버튼이 눌렸을 때의 동작을 구현합니다.
+                        print("\(emoji)")
+                        memoViewModel.tmpMemo.emotion = emoji
+                    }) {
+                        Image(systemName: emoji)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .padding() // 이미지 간 간격 조절
+                            .clipShape(Circle()) // 버튼 모양을 원 모양으로 지정
+                            .foregroundColor(memoViewModel.tmpMemo.emotion == emoji ? Color.blue : Color.black)
+                    }
                 }
-                .padding(.vertical,50)
-                .frame(height: 60)
-                .background(.white)
-                .cornerRadius(20)
-                .shadow(
-                    color: Color(red: 0.11, green: 0.23, blue: 0.35, opacity: 0.05), radius: 20, y: 8
-                )
-            }.padding(.vertical,30)
-            
+            }
+         
             TextEditor(text: $memoViewModel.tmpMemo.content)
                 .lineSpacing(10)
                 .disableAutocorrection(true)
@@ -50,7 +47,7 @@ struct MemoCreateView: View {
                 )
                 .frame(maxHeight:300)
             Spacer()
-            
+            Spacer()
             Button(action: {
                 //TODO: 함수로 묶기
                 if memoViewModel.tmpMemo.content != ""{
@@ -71,8 +68,8 @@ struct MemoCreateView: View {
                     .foregroundColor(.black)
                 
             })
-            
         }
+
         .padding()
         .onAppear(){
             print("hi")

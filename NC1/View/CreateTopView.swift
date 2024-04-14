@@ -9,7 +9,26 @@ import SwiftUI
 
 struct CreateTopView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        HStack() {
+            Image(systemName: "lessthan")
+                .padding()
+            Spacer()
+            Image(systemName: "calendar")
+            Text("Today")
+                .font(Font.custom("Manrope", size: 18))
+                .foregroundColor(.black)
+            Spacer()
+            Image(systemName: "greaterthan")
+                .padding()
+        }
+        .frame(height: 60)
+        .background(.white)
+        .cornerRadius(20)
+        //            .shadow(
+        //                color: Color(red: 0.11, green: 0.23, blue: 0.35, opacity: 0.05), radius: 20, y: 8
+        //            )
+        
     }
 }
 

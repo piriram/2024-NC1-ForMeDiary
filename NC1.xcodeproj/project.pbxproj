@@ -15,6 +15,7 @@
 		2144630F2BCAF2C400C29F51 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144630E2BCAF2C400C29F51 /* RootView.swift */; };
 		214463112BCAF86100C29F51 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214463102BCAF86100C29F51 /* ListView.swift */; };
 		214463132BCAFBF500C29F51 /* MemoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214463122BCAFBF500C29F51 /* MemoDetailView.swift */; };
+		214463152BCB041600C29F51 /* CreateTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214463142BCB041600C29F51 /* CreateTopView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		2144630E2BCAF2C400C29F51 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		214463102BCAF86100C29F51 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		214463122BCAFBF500C29F51 /* MemoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDetailView.swift; sourceTree = "<group>"; };
+		214463142BCB041600C29F51 /* CreateTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTopView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				2144630E2BCAF2C400C29F51 /* RootView.swift */,
 				214463102BCAF86100C29F51 /* ListView.swift */,
 				214463122BCAFBF500C29F51 /* MemoDetailView.swift */,
+				214463142BCB041600C29F51 /* CreateTopView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 			files = (
 				214462FB2BC96FF300C29F51 /* MemoCreateView.swift in Sources */,
 				214462F92BC96FF300C29F51 /* NC1App.swift in Sources */,
+				214463152BCB041600C29F51 /* CreateTopView.swift in Sources */,
 				214463112BCAF86100C29F51 /* ListView.swift in Sources */,
 				214463132BCAFBF500C29F51 /* MemoDetailView.swift in Sources */,
 				2144630F2BCAF2C400C29F51 /* RootView.swift in Sources */,
