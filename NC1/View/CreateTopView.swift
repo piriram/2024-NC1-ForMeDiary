@@ -11,16 +11,16 @@ struct CreateTopView: View {
     var body: some View {
         
         HStack() {
-            Image(systemName: "lessthan")
-                .padding()
+//            Image(systemName: "lessthan")
+//                .padding()
             Spacer()
             Image(systemName: "calendar")
             Text("Today")
                 .font(Font.custom("Manrope", size: 18))
                 .foregroundColor(.black)
             Spacer()
-            Image(systemName: "greaterthan")
-                .padding()
+//            Image(systemName: "greaterthan")
+//                .padding()
         }
         .frame(height: 60)
         .background(.white)

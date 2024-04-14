@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct RootView: View {
+    @EnvironmentObject var memo : MemoViewModel
+    @StateObject var memoViewModel = MemoViewModel()
     var body: some View {
-        @EnvironmentObject var memo : MemoViewModel
+        
         NavigationView {
             VStack {
                 ListView()

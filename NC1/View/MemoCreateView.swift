@@ -10,15 +10,16 @@ import SwiftUI
 struct MemoCreateView: View {
     @State var content = ""
     @EnvironmentObject var memoViewModel : MemoViewModel
+//    @StateObject var memoViewModel = MemoViewModel()
     @Environment(\.presentationMode) var presentationMode
     @State var showingAlert = false
     let emojis = ["face.smiling", "questionmark.circle", "exclamationmark.circle", "poweroutlet.type.f"]
     
     var body: some View {
-        VStack() {
+        VStack(spacing:60) {
             
             CreateTopView()
-            Spacer()
+           
             HStack(spacing: 10) {
                 ForEach(emojis, id: \.self) { emoji in
                     
@@ -36,18 +37,16 @@ struct MemoCreateView: View {
                     }
                 }
             }
-         
+
             TextEditor(text: $memoViewModel.tmpMemo.content)
                 .lineSpacing(10)
                 .disableAutocorrection(true)
-                .padding(30)
                 .overlay(
                     RoundedRectangle(cornerRadius: 25)
                         .stroke(Color.gray, lineWidth: 1)
                 )
                 .frame(maxHeight:300)
-            Spacer()
-            Spacer()
+
             Button(action: {
                 //TODO: 함수로 묶기
                 if memoViewModel.tmpMemo.content != ""{
@@ -69,7 +68,7 @@ struct MemoCreateView: View {
                 
             })
         }
-
+        
         .padding()
         .onAppear(){
             print("hi")
@@ -78,7 +77,8 @@ struct MemoCreateView: View {
             Alert(title: Text("내용을 입력해주세요."), message: nil,
                   dismissButton: .default(Text("넹")))
         }
-        
+//        .navigationBarBackButtonHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
         
         
     }
