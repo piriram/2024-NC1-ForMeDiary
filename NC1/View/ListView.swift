@@ -43,20 +43,6 @@ struct ListView: View {
         return dateFormatter.string(from: date ?? Date())
     }
     
-    private func formatSectionHeader(dateString: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let date = dateFormatter.date(from: dateString) ?? Date()
-        let today = Calendar.current.startOfDay(for: Date())
-        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: today)!
-        if Calendar.current.isDate(date, inSameDayAs: today) {
-            return "Today"
-        } else if Calendar.current.isDate(date, inSameDayAs: yesterday) {
-            return "Yesterday"
-        } else {
-            return dateString
-        }
-    }
     func ReadToFile(){
         //파일매니저 인스턴스 생성
         let fileManager = FileManager.default
@@ -85,12 +71,13 @@ struct ListView: View {
         
         
         do{
-            if !fileManager.fileExists(atPath: textPath.path) {
+            if fileManager.fileExists(atPath: textPath.path) {
                 do {
                     let fileData = try Data(contentsOf: textPath)
                     let decoder = JSONDecoder()
                     let decodedMemo = try decoder.decode([MemoModel].self, from: fileData)
                     // 디코딩된 메모 데이터를 MemoViewModel의 memoHistory에 추가
+                    memoViewModel.memoHistory = []
                     decodedMemo.forEach { memoViewModel.addMemo($0) }
                     print("Memo History: \(memoViewModel.memoHistory)")
                 } catch {
@@ -99,24 +86,20 @@ struct ListView: View {
             }
         }
         
-
-        
-        // 만든 파일 불러와서 읽기.
-        do {
-            let dataFromPath: Data = try Data(contentsOf: textPath) 
-            // URL을 불러와서 Data타입으로 초기화
-            let text: String = String(data: dataFromPath, encoding: .utf8) ?? "문서없음" // Data to String
-            print(text) // 출력
-        } catch let e {
-            print(e.localizedDescription)
+    }
+    private func formatSectionHeader(dateString: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.date(from: dateString) ?? Date()
+        let today = Calendar.current.startOfDay(for: Date())
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: today)!
+        if Calendar.current.isDate(date, inSameDayAs: today) {
+            return "Today"
+        } else if Calendar.current.isDate(date, inSameDayAs: yesterday) {
+            return "Yesterday"
+        } else {
+            return dateString
         }
-        
-
-
-        
-
-        
-        
     }
 }
 
