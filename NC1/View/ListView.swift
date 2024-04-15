@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-var fileName = "test2.txt"
-var folderName = "NC3"
 
 struct ListView: View {
     @EnvironmentObject var memoViewModel: MemoViewModel
@@ -101,14 +99,7 @@ struct ListView: View {
             }
         }
         
-        
-//        if let data: Data = "".data(using: String.Encoding.utf8) { // String to Data
-//            do {
-//                try data.write(to: textPath) // 위 data를 만든 파일에 쓰기
-//            } catch let e {
-//                print(e.localizedDescription)
-//            }
-//        }
+
         
         // 만든 파일 불러와서 읽기.
         do {
@@ -136,11 +127,3 @@ struct ListView: View {
 }
 
 
-// 아까 만든 'hi.txt' 경로에 텍스트 쓰기
-//        if let data: Data = "안녕하세요.".data(using: String.Encoding.utf8) { // String to Data
-//            do {
-//                try data.write(to: textPath) // 위 data를 "hi.txt"에 쓰기
-//            } catch let e {
-//                print(e.localizedDescription)
-//            }
-//        }

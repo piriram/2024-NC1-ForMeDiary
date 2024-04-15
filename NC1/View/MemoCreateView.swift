@@ -100,20 +100,7 @@ struct MemoCreateView: View {
                 // 파일을 저장할 디렉토리 경로(URL) 반환 = 경로 추가 여기서는 문서/새 폴더
                 let directoryPath = documentPath.appendingPathComponent(folderName)
                 
-//                do {
-//                    if !fileManager.fileExists(atPath: directoryPath.path) {
-//                        try fileManager.createDirectory(at: directoryPath, withIntermediateDirectories: false,attributes: nil)
-//                //withIntermediateDirectories:중간 디렉토리 만들꺼임?
-//                //attribute:파일접근 권한,그룹 등등 폴더 속성 정의
-//                print("만들었지롱")
-//            }
-//            else{
-//                print("이미 만들어짐")
-//            }
-//        } catch {
-//            print("create folder error. do something")
-//        }
-//        print(directoryPath)
+
         // 폴더에 파일 생성
         let textPath = directoryPath.appendingPathComponent(fileName)
         
