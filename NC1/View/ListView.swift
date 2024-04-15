@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+var fileName = "test2.txt"
+var folderName = "NC3"
 
 struct ListView: View {
     @EnvironmentObject var memoViewModel: MemoViewModel
@@ -21,6 +23,9 @@ struct ListView: View {
                     }
                 }
             }
+        }
+        .onAppear(){
+            fileProcess()
         }
     }
     
@@ -54,6 +59,74 @@ struct ListView: View {
             return dateString
         }
     }
+    func fileProcess(){
+        //파일매니저 인스턴스 생성
+        let fileManager = FileManager.default
+        //사용자의 문서 경로
+        let documentPath: URL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        //파일을 저장할 디렉토리 경로(URL) 반환 = 경로 추가 여기서는 문서/새 폴더
+        let directoryPath: URL = documentPath.appendingPathComponent(folderName)
+        
+        let textPath: URL = directoryPath.appendingPathComponent(fileName)
+        do {
+            if !fileManager.fileExists(atPath: directoryPath.path) { //디렉토리가 있는지 확인하고 디렉토리를 만듬
+                try fileManager.createDirectory(at: directoryPath, withIntermediateDirectories: false,attributes: nil)
+                //withIntermediateDirectories:중간 디렉토리 만들꺼임?
+                //attribute:파일접근 권한,그룹 등등 폴더 속성 정의
+                
+                print("폴더 만들었지롱")
+                
+                
+            }
+            else{
+                print("폴더 존재했음")
+            }
+        } catch {
+            print("create folder error. do something")
+        }
+        
+        
+        do{
+            if !fileManager.fileExists(atPath: textPath.path) {
+                do {
+                    let fileData = try Data(contentsOf: textPath)
+                    let decoder = JSONDecoder()
+                    let decodedMemo = try decoder.decode([MemoModel].self, from: fileData)
+                    // 디코딩된 메모 데이터를 MemoViewModel의 memoHistory에 추가
+                    decodedMemo.forEach { memoViewModel.addMemo($0) }
+                    print("Memo History: \(memoViewModel.memoHistory)")
+                } catch {
+                    print("Failed to read and decode memo data:", error)
+                }
+            }
+        }
+        
+        
+//        if let data: Data = "".data(using: String.Encoding.utf8) { // String to Data
+//            do {
+//                try data.write(to: textPath) // 위 data를 만든 파일에 쓰기
+//            } catch let e {
+//                print(e.localizedDescription)
+//            }
+//        }
+        
+        // 만든 파일 불러와서 읽기.
+        do {
+            let dataFromPath: Data = try Data(contentsOf: textPath) 
+            // URL을 불러와서 Data타입으로 초기화
+            let text: String = String(data: dataFromPath, encoding: .utf8) ?? "문서없음" // Data to String
+            print(text) // 출력
+        } catch let e {
+            print(e.localizedDescription)
+        }
+        
+
+
+        
+
+        
+        
+    }
 }
 
 
@@ -61,3 +134,13 @@ struct ListView: View {
 #Preview {
     ListView()
 }
+
+
+// 아까 만든 'hi.txt' 경로에 텍스트 쓰기
+//        if let data: Data = "안녕하세요.".data(using: String.Encoding.utf8) { // String to Data
+//            do {
+//                try data.write(to: textPath) // 위 data를 "hi.txt"에 쓰기
+//            } catch let e {
+//                print(e.localizedDescription)
+//            }
+//        }

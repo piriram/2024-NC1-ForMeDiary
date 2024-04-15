@@ -19,4 +19,8 @@ struct MemoModel: Hashable, Identifiable ,Codable {
 class MemoViewModel:ObservableObject{
     @Published var tmpMemo : MemoModel = MemoModel(content: "")
     @Published var memoHistory : [MemoModel] = []
+    
+    func addMemo(_ memo: MemoModel) {
+            memoHistory.append(memo)
+        }
 }
