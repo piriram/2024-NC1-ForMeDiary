@@ -50,7 +50,7 @@ struct MemoCreateView: View {
                 if memoViewModel.tmpMemo.content != ""{
                     
                     saveData()
-                    fileProcess()
+                    writeToFile()
                     self.presentationMode.wrappedValue.dismiss()
                 }
                 else{
@@ -92,7 +92,7 @@ struct MemoCreateView: View {
         memoViewModel.memoHistory.append(memoViewModel.tmpMemo)
         memoViewModel.tmpMemo = MemoModel(content: "")
     }
-    func fileProcess() {
+    func writeToFile() {
         // 파일매니저 인스턴스 생성
         let fileManager = FileManager.default
         // 사용자의 문서 경로

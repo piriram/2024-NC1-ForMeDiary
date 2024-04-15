@@ -23,7 +23,7 @@ struct ListView: View {
             }
         }
         .onAppear(){
-            fileProcess()
+            ReadToFile()
         }
     }
     
@@ -57,7 +57,7 @@ struct ListView: View {
             return dateString
         }
     }
-    func fileProcess(){
+    func ReadToFile(){
         //파일매니저 인스턴스 생성
         let fileManager = FileManager.default
         //사용자의 문서 경로
