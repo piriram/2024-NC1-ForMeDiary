@@ -22,15 +22,15 @@ struct MemoCreateView: View {
                 ForEach(emojis, id: \.self) { emoji in
                     
                     Button(action: {
-                        // 버튼이 눌렸을 때의 동작을 구현합니다.
+                        // 버튼이 눌렸을 때의 동작
                         print("\(emoji)")
                         memoViewModel.tmpMemo.emotion = emoji
                     }) {
                         Image(systemName: emoji)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .padding() // 이미지 간 간격 조절
-                            .clipShape(Circle()) // 버튼 모양을 원 모양으로 지정
+                            .padding()
+                            .clipShape(Circle())
                             .foregroundColor(memoViewModel.tmpMemo.emotion == emoji ? Color.blue : Color.black)
                     }
                 }
@@ -100,7 +100,7 @@ struct MemoCreateView: View {
                 // 파일을 저장할 디렉토리 경로(URL) 반환 = 경로 추가 여기서는 문서/새 폴더
                 let directoryPath = documentPath.appendingPathComponent(folderName)
                 
-
+        print(documentPath.path)
         // 폴더에 파일 생성
         let textPath = directoryPath.appendingPathComponent(fileName)
         
@@ -125,10 +125,15 @@ struct MemoCreateView: View {
     MemoCreateView()
 }
 
-//        함수를 만들고 사용하는 걸까, 같은 코드가 반복되면 함수로 만드는 걸까,, 뭐가 좋은건지 정해져있을까?
+// 함수를 만들고 사용하는 걸까, 같은 코드가 반복되면 함수로 만드는 걸까,, 뭐가 좋은건지 정해져있을까?
+// MISSION:함수로 묶어보고 검사받기
+// 얼마나 쪼개야할지
+// 처음 어떻게 접근할지
 // 디렉토리 있는지 확인 -> 파일 있는지 확인 ->
 // ListView에서 파일 읽어오고 디코딩해서 환경변수에 넣고 리스트 보여주기
 // MemoCreateView 버튼 클릭시 환경변수에 추가하고 인코딩하고 파일에 넣기
 // 파일 입출력을 뷰가 변경될 때마다 해도 부담이 없을지
+// background 함수가 있대
 // 그리고 디렉토리가 있는지 확인,,파일이 있는지 확인해야하고
 // 파일을 어디서 생성하고,, 빈 파일을 만들 수 있는지,,, 
+//

@@ -11,6 +11,7 @@ struct ListView: View {
     @EnvironmentObject var memoViewModel: MemoViewModel
     
     var body: some View {
+        
         List {
             ForEach(groupedMemoHistory, id: \.0) { date, memos in
                 Section(header: Text(formatSectionHeader(dateString: date))) {
@@ -22,10 +23,14 @@ struct ListView: View {
                 }
             }
         }
+//        .padding(.vertical,200)
+//        .ignoresSafeArea()
         .onAppear(){
             ReadToFile()
         }
+        
     }
+    
     
     private var groupedMemoHistory: [(String, [MemoModel])] {
         let groupedMemos = Dictionary(grouping: memoViewModel.memoHistory) { memo in

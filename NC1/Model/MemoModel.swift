@@ -24,5 +24,5 @@ class MemoViewModel:ObservableObject{
             memoHistory.append(memo)
         }
 }
-var fileName = "rawdata.txt"
+var fileName = "data1.txt"
 var folderName = "NC1"
