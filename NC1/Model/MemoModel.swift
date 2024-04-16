@@ -22,6 +22,9 @@ struct MemoModel:Hashable, Identifiable ,Codable {
 class MemoViewModel:ObservableObject{
     @Published var tmpMemo : MemoModel = MemoModel(content: "")
     @Published var memoHistory : [MemoModel] = []
+    func filterMemosByEmotion(emotion: String) -> [MemoModel] {
+            return memoHistory.filter { $0.emotion == emotion }
+        }
     func countEmotionOccurrences() -> [String: Int] {
         var emotionCounts: [String: Int] = [:]
         for memo in memoHistory {
@@ -34,5 +37,5 @@ class MemoViewModel:ObservableObject{
     
 }
 var fileName = "data1.txt"
-var folderName = "New NC1"
+var folderName = "NC1"
 //        .ignoresSafeArea()

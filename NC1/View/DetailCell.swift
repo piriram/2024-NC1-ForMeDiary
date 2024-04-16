@@ -10,14 +10,12 @@ import SwiftUI
 struct DetailCell: View {
     @State var content:String = ""
     @EnvironmentObject var memoViewModel : MemoViewModel
-//    @StateObject var memoViewModel = MemoViewModel()
     @Environment(\.presentationMode) var presentationMode
     @State var showingAlert = false
     @State var emotion_num = static_num
     var body: some View {
         VStack(spacing:60) {
             CurrentDateView()
-//            EmotionView(emotion_num: emotion)
 
             TextEditor(text: $memoViewModel.tmpMemo.content)
                 .lineSpacing(10)

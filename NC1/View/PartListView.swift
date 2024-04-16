@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PartListView: View {
     @EnvironmentObject var memoViewModel: MemoViewModel
+    var emotion_num = static_num
+    
     
     var body: some View {
         List {
@@ -32,8 +34,10 @@ struct PartListView: View {
             
         }
         .onAppear(){
-            ReadToFile()
+            memoViewModel.memoHistory=memoViewModel.filterMemosByEmotion(emotion: String(emotion_num))
+//            ReadToFile()
             memoViewModel.memoHistory.sort(by: { $0.time ?? "" > $1.time ?? "" })
+            print(memoViewModel.memoHistory)
             
         }
     }

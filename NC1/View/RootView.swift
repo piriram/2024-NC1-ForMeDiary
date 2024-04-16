@@ -14,7 +14,7 @@ struct RootView: View {
         
         NavigationView {
             VStack {
-                AllListView()
+                PartListView()
                 Spacer()
                 NavigationLink(destination: MemoCreateView()) {
                     Image(systemName: "plus.circle.fill")
