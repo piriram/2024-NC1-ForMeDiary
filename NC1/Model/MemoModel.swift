@@ -26,5 +26,5 @@ class MemoViewModel:ObservableObject{
     
 }
 var fileName = "data1.txt"
-var folderName = "NC1"
+var folderName = "New NC1"
 //        .ignoresSafeArea()

@@ -14,8 +14,8 @@ struct ListView: View {
         List {
             ForEach(groupedMemoHistory, id: \.0) { date, memos in
                 Section(header: Text(formatSectionHeader(dateString: date))) {
-                    
-                    ForEach(memos.sorted(by: { $0.time ?? "" > $1.time ?? "" }), id: \.self) { memo in
+                    ForEach(memos,id: \.self) { memo in
+//                    ForEach(memos.sorted(by: { $0.time ?? "" > $1.time ?? "" }), id: \.self) { memo in
                         NavigationLink(destination: MemoDetailView(memo: memo)) {
                             Text(memo.content)
                         }
@@ -23,6 +23,7 @@ struct ListView: View {
                     }
                     .onDelete(perform: { indexSet in
                         deleteRow(at: indexSet)
+                        print("indexset:\(indexSet)")
                         writeToFile()
                     })
                 }
@@ -32,6 +33,8 @@ struct ListView: View {
         }
         .onAppear(){
             ReadToFile()
+            memoViewModel.memoHistory.sort(by: { $0.time ?? "" > $1.time ?? "" })
+            
         }
     }
     
@@ -39,7 +42,7 @@ struct ListView: View {
         if let first = offsets.first{
             memoViewModel.memoHistory.remove(at: first)
         }
-        print(memoViewModel.memoHistory)
+//        print(memoViewModel.memoHistory)
     }
     private var groupedMemoHistory: [(String, [MemoModel])] {
         let groupedMemos = Dictionary(grouping: memoViewModel.memoHistory) { memo in
