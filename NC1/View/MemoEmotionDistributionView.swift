@@ -35,13 +35,27 @@ struct MemoEmotionDistributionView: View {
     var body: some View {
         let emotionCounts = memoViewModel.countEmotionOccurrences()
         
-        return HStack {
-            ForEach(emotionCounts.sorted(by: { $0.value > $1.value }), id: \.key) { emotion, count in
-                CircleView(radiusScale: CGFloat(count), text: emotion)
+        return NavigationStack {
+            VStack {
+                Spacer()
+                HStack {
+                    ForEach(emotionCounts.sorted(by: { $0.value > $1.value }), id: \.key) { emotion, count in
+                        CircleView(radiusScale: CGFloat(count), text: emotion)
+                    }
+                    
+                }
+                Spacer()
+                NavigationLink(destination: MemoCreateView()) {
+                    Image(systemName: "plus.circle.fill")
+                        .font(.system(size: 50))
+                        .foregroundColor(.green)
+                }
+                .padding()
             }
-        }
-        .onAppear(){
-            ReadToFile()
+                .onAppear(){
+                    ReadToFile()
+            
+            }
         }
     }
     func ReadToFile(){
