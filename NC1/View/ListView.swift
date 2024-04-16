@@ -16,7 +16,7 @@ struct ListView: View {
                 Section(header: Text(formatSectionHeader(dateString: date))) {
                     ForEach(memos,id: \.self) { memo in
 //                    ForEach(memos.sorted(by: { $0.time ?? "" > $1.time ?? "" }), id: \.self) { memo in
-                        NavigationLink(destination: MemoDetailView(memo: memo)) {
+                        NavigationLink(destination: MemoUpdateView(memo: memo)) {
                             Text(memo.content)
                         }
                         
