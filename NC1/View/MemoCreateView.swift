@@ -8,33 +8,16 @@
 import SwiftUI
 
 struct MemoCreateView: View {
-    @State var content = ""
+    @State var content:String = ""
     @EnvironmentObject var memoViewModel : MemoViewModel
 //    @StateObject var memoViewModel = MemoViewModel()
     @Environment(\.presentationMode) var presentationMode
     @State var showingAlert = false
-    let emojis = ["face.smiling", "questionmark.circle", "exclamationmark.circle", "poweroutlet.type.f"]
     
     var body: some View {
         VStack(spacing:60) {
             CreateTopView()
-            HStack(spacing: 10) {
-                ForEach(emojis, id: \.self) { emoji in
-                    
-                    Button(action: {
-                        // 버튼이 눌렸을 때의 동작
-                        print("\(emoji)")
-                        memoViewModel.tmpMemo.emotion = emoji
-                    }) {
-                        Image(systemName: emoji)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .padding()
-                            .clipShape(Circle())
-                            .foregroundColor(memoViewModel.tmpMemo.emotion == emoji ? Color.blue : Color.black)
-                    }
-                }
-            }
+            EmotionView()
 
             TextEditor(text: $memoViewModel.tmpMemo.content)
                 .lineSpacing(10)
@@ -93,6 +76,7 @@ struct MemoCreateView: View {
         memoViewModel.tmpMemo = MemoModel(content: "")
     }
     func writeToFile() {
+        
         // 파일매니저 인스턴스 생성
         let fileManager = FileManager.default
         // 사용자의 문서 경로

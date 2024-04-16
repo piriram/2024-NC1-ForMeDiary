@@ -7,12 +7,15 @@
 
 import Foundation
 
-struct MemoModel: Hashable, Identifiable ,Codable {
+struct MemoModel:Hashable, Identifiable ,Codable {
     
     var id = UUID()
     var time: String?
     var emotion : String?
     var content: String
+    
+   
+
     
 }
 
@@ -20,9 +23,8 @@ class MemoViewModel:ObservableObject{
     @Published var tmpMemo : MemoModel = MemoModel(content: "")
     @Published var memoHistory : [MemoModel] = []
     
-    func addMemo(_ memo: MemoModel) {
-            memoHistory.append(memo)
-        }
+    
 }
-var fileName = "data1.txt"
+var fileName = "rawdata.txt"
 var folderName = "NC1"
+//        .ignoresSafeArea()
