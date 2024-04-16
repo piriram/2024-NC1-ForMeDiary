@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CreateTopView: View {
+struct CurrentDateView: View {
     
     var body: some View {
         
@@ -30,5 +30,5 @@ struct CreateTopView: View {
 }
 
 #Preview {
-    CreateTopView()
+    CurrentDateView()
 }
