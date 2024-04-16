@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ListView: View {
+struct AllListView: View {
     @EnvironmentObject var memoViewModel: MemoViewModel
     
     var body: some View {
@@ -167,7 +167,7 @@ struct ListView: View {
 
 
 #Preview {
-    ListView()
+    AllListView()
 }
 
 

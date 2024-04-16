@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ListDetailView: View {
+struct DetailCell: View {
     @State var content:String = ""
     @EnvironmentObject var memoViewModel : MemoViewModel
 //    @StateObject var memoViewModel = MemoViewModel()
@@ -68,5 +68,5 @@ struct ListDetailView: View {
 }
 
 #Preview {
-    ListDetailView()
+    DetailCell()
 }
