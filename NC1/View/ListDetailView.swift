@@ -16,7 +16,7 @@ struct ListDetailView: View {
     var body: some View {
         VStack(spacing:60) {
             CreateTopView()
-            EmotionView()
+//            EmotionView(emotion_num: emotion)
 
             TextEditor(text: $memoViewModel.tmpMemo.content)
                 .lineSpacing(10)

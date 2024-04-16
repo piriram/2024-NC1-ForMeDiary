@@ -8,31 +8,26 @@
 import SwiftUI
 
 struct EmotionView: View {
+    @Binding var emotion_num:Int
     let emojis = ["face.smiling", "questionmark.circle", "exclamationmark.circle", "poweroutlet.type.f"]
     @EnvironmentObject var memoViewModel : MemoViewModel
     var body: some View {
-        
-        
         HStack(spacing: 10) {
-            ForEach(emojis, id: \.self) { emoji in
-                
+            ForEach(emojis.indices, id: \.self) { index in
                 Button(action: {
                     // 버튼이 눌렸을 때의 동작
-                    print("\(emoji)")
-                    memoViewModel.tmpMemo.emotion = emoji
+                    print("\(self.emojis[index])")
+                    //                        memoViewModel.tmpMemo.emotion = self.emojis[index]+1
+                    self.emotion_num = index // emotion_num을 해당 emoji의 index로 설정
                 }) {
-                    Image(systemName: emoji)
+                    Image(systemName: self.emojis[index])
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .padding()
                         .clipShape(Circle())
-                        .foregroundColor(memoViewModel.tmpMemo.emotion == emoji ? Color.blue : Color.black)
+                        .foregroundColor(emotion_num == index ? Color.blue : Color.black)
                 }
             }
         }
     }
-}
-
-#Preview {
-    EmotionView()
 }

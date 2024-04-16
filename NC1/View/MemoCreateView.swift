@@ -6,18 +6,18 @@
 //
 
 import SwiftUI
-
+var static_num = 5
 struct MemoCreateView: View {
     @State var content:String = ""
     @EnvironmentObject var memoViewModel : MemoViewModel
-//    @StateObject var memoViewModel = MemoViewModel()
     @Environment(\.presentationMode) var presentationMode
     @State var showingAlert = false
+    @State var emotion_num = static_num
     
     var body: some View {
         VStack(spacing:60) {
             CreateTopView()
-            EmotionView()
+            EmotionView(emotion_num: $emotion_num)
 
             TextEditor(text: $memoViewModel.tmpMemo.content)
                 .lineSpacing(10)
