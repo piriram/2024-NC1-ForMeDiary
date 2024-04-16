@@ -14,20 +14,33 @@ struct ListView: View {
         List {
             ForEach(groupedMemoHistory, id: \.0) { date, memos in
                 Section(header: Text(formatSectionHeader(dateString: date))) {
-                    ForEach(memos, id: \.id) { memo in
+                    
+                    ForEach(memos.sorted(by: { $0.time ?? "" > $1.time ?? "" }), id: \.self) { memo in
                         NavigationLink(destination: MemoDetailView(memo: memo)) {
                             Text(memo.content)
                         }
+                        
                     }
+                    .onDelete(perform: { indexSet in
+                        deleteRow(at: indexSet)
+                        writeToFile()
+                    })
                 }
             }
+            
+            
         }
         .onAppear(){
             ReadToFile()
         }
     }
     
-    
+    func deleteRow(at offsets: IndexSet) {
+        if let first = offsets.first{
+            memoViewModel.memoHistory.remove(at: first)
+        }
+        print(memoViewModel.memoHistory)
+    }
     private var groupedMemoHistory: [(String, [MemoModel])] {
         let groupedMemos = Dictionary(grouping: memoViewModel.memoHistory) { memo in
             formatDate(dateString: memo.time)
