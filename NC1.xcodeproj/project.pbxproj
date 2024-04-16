@@ -88,13 +88,13 @@
 		214463062BC9701B00C29F51 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				214462FA2BC96FF300C29F51 /* MemoCreateView.swift */,
-				2144630E2BCAF2C400C29F51 /* RootView.swift */,
-				214463102BCAF86100C29F51 /* ListView.swift */,
-				214463122BCAFBF500C29F51 /* MemoDetailView.swift */,
 				214463142BCB041600C29F51 /* CreateTopView.swift */,
 				2113507F2BCE2CC00007CBBA /* EmotionView.swift */,
 				211350812BCE2E130007CBBA /* ListDetailView.swift */,
+				214463102BCAF86100C29F51 /* ListView.swift */,
+				214462FA2BC96FF300C29F51 /* MemoCreateView.swift */,
+				214463122BCAFBF500C29F51 /* MemoDetailView.swift */,
+				2144630E2BCAF2C400C29F51 /* RootView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
