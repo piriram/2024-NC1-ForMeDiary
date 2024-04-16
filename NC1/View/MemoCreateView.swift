@@ -16,7 +16,7 @@ struct MemoCreateView: View {
     
     var body: some View {
         VStack(spacing:60) {
-            CreateTopView()
+            CurrentDateView()
             EmotionView(emotion_num: $emotion_num)
 
             TextEditor(text: $memoViewModel.tmpMemo.content)
@@ -71,9 +71,11 @@ struct MemoCreateView: View {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let dateString = dateFormatter.string(from: currentDate)
         self.memoViewModel.tmpMemo.time = dateString
+        self.memoViewModel.tmpMemo.emotion = String(emotion_num)
         print(memoViewModel.tmpMemo)
         memoViewModel.memoHistory.append(memoViewModel.tmpMemo)
         memoViewModel.tmpMemo = MemoModel(content: "")
+        
     }
     func writeToFile() {
         

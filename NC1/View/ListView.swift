@@ -23,7 +23,7 @@ struct ListView: View {
                     }
                     .onDelete(perform: { indexSet in
                         deleteRow(at: indexSet)
-                        print("indexset:\(indexSet)")
+//                        print("indexset:\(indexSet)")
                         writeToFile()
                     })
                 }

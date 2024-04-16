@@ -13,9 +13,10 @@ struct ListDetailView: View {
 //    @StateObject var memoViewModel = MemoViewModel()
     @Environment(\.presentationMode) var presentationMode
     @State var showingAlert = false
+    @State var emotion_num = static_num
     var body: some View {
         VStack(spacing:60) {
-            CreateTopView()
+            CurrentDateView()
 //            EmotionView(emotion_num: emotion)
 
             TextEditor(text: $memoViewModel.tmpMemo.content)
@@ -53,7 +54,7 @@ struct ListDetailView: View {
         
         .padding()
         .onAppear(){
-            print("hi")
+//            emotion_num=memoViewModel.
         }
         .alert(isPresented: $showingAlert) {
             Alert(title: Text("내용을 입력해주세요."), message: nil,

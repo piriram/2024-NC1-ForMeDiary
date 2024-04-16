@@ -14,7 +14,7 @@ struct MemoUpdateView: View {
     @State var memo: MemoModel
     @State var showingAlert = false
     @State var editedMemo = ""
-    
+    @State var emotion_num = static_num
     
     var body: some View {
         VStack(spacing:60) {
@@ -27,7 +27,7 @@ struct MemoUpdateView: View {
                         .stroke(Color.gray, lineWidth: 1)
                 )
                 .frame(maxHeight:300)
-
+            EmotionView(emotion_num: $emotion_num)
             Spacer()
             
             Button(action: {
@@ -57,6 +57,10 @@ struct MemoUpdateView: View {
             })
         }
         .onAppear(){
+            if let emotion = memo.emotion{
+                emotion_num = Int(emotion)!
+            }
+            
             editedMemo = memo.content
         }
         .padding()
@@ -68,6 +72,7 @@ struct MemoUpdateView: View {
         
     }
     func saveData(){
+        memo.emotion = String(emotion_num)
         if let index = memoViewModel.memoHistory.firstIndex(where: { $0.id == memo.id }) {
             memoViewModel.memoHistory[index] = memo
             print("너가찾은애들:\(memoViewModel.memoHistory[index])")
