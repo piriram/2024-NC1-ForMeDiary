@@ -18,17 +18,9 @@ struct ListView: View {
                         NavigationLink(destination: MemoDetailView(memo: memo)) {
                             Text(memo.content)
                         }
-                        
                     }
-                    
                 }
-                
             }
-//            .onDelete{ indexSet in
-//                memoViewModel.memoHistory.remove(
-//               writeToFile()
-//            }
-
         }
         .onAppear(){
             ReadToFile()
@@ -51,7 +43,7 @@ struct ListView: View {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.string(from: date ?? Date())
     }
-  
+    
     func writeToFile() {
         // 파일매니저 인스턴스 생성
         let fileManager = FileManager.default

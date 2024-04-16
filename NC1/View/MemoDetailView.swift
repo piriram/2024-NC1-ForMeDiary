@@ -68,15 +68,7 @@ struct MemoDetailView: View {
         
     }
     func saveData(){
-        //        let currentDate = Date()
-        //        let dateFormatter = DateFormatter()
-        //        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        //        let dateString = dateFormatter.string(from: currentDate)
-        //        self.memoViewModel.tmpMemo.time = dateString
-        //        print(memoViewModel.tmpMemo)
-        
         if let index = memoViewModel.memoHistory.firstIndex(where: { $0.id == memo.id }) {
-            
             memoViewModel.memoHistory[index] = memo
             print("너가찾은애들:\(memoViewModel.memoHistory[index])")
         }
