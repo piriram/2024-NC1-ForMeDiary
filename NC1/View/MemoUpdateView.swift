@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MemoDetailView: View {
+struct MemoUpdateView: View {
 
     @EnvironmentObject var memoViewModel: MemoViewModel
     @Environment(\.presentationMode) var presentationMode
