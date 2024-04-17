@@ -10,6 +10,7 @@ import SwiftUI
 struct EmotionMainView: View {
     @EnvironmentObject var memoViewModel: MemoViewModel
     
+    
     var body: some View {
         let emotionCounts = memoViewModel.countEmotionOccurrences()
         

@@ -17,11 +17,13 @@ struct MemoModel:Hashable, Identifiable ,Codable {
     
     
     
+    
 }
 
 class MemoViewModel:ObservableObject{
     @Published var tmpMemo : MemoModel = MemoModel(content: "")
     @Published var memoHistory : [MemoModel] = []
+    
     func filterMemosByEmotion(emotion: String) -> [MemoModel] {
             return memoHistory.filter { $0.emotion == emotion }
         }

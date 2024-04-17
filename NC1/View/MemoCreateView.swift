@@ -13,6 +13,7 @@ struct MemoCreateView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var showingAlert = false
     @State var emotion_num = static_num
+
     
     var body: some View {
         VStack(spacing:60) {

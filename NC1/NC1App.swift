@@ -12,8 +12,10 @@ struct NC1App: App {
     @StateObject var memo = MemoViewModel()
     var body: some Scene {
         WindowGroup {
-            MemoEmotionDistributionView()
-        }.environmentObject(memo)
+            EmotionMainView()
+        }
+        .environmentObject(memo)
+        
     }
 }
 
