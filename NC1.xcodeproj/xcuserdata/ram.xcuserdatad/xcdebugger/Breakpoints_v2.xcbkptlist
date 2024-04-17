@@ -132,5 +132,53 @@
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "02590914-3666-4A8A-8794-C138E9443FEC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NC1/View/CurrentDateView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "02590914-3666-4A8A-8794-C138E9443FEC - 9a6b32d1cd9bd6ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NC1.CurrentDateView.body.getter : some"
+                  moduleName = "NC1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ram/Code/NC1_main/NC1/View/CurrentDateView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  uuid = "02590914-3666-4A8A-8794-C138E9443FEC - d8b61cbca78d7da2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Spacer, SwiftUI.Image, SwiftUI.Text, SwiftUI.Spacer)&gt; in NC1.CurrentDateView.body.getter : some"
+                  moduleName = "NC1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ram/Code/NC1_main/NC1/View/CurrentDateView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "124">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

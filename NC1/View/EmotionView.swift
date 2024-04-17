@@ -16,7 +16,7 @@ struct EmotionView: View {
             ForEach(emojis.indices, id: \.self) { index in
                 Button(action: {
                     // 버튼이 눌렸을 때의 동작
-                    print("\(self.emojis[index])")
+//                    print("\(self.emojis[index])")
                     //                        memoViewModel.tmpMemo.emotion = self.emojis[index]+1
                     self.emotion_num = index // emotion_num을 해당 emoji의 index로 설정
                 }) {
