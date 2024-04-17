@@ -33,7 +33,7 @@ struct AllListView: View {
         }
         .onAppear(){
             ReadToFile()
-            memoViewModel.memoHistory.sort(by: { $0.time ?? "" > $1.time ?? "" })
+            memoViewModel.memoHistory.sort(by: { $0.memo_date ?? "" > $1.memo_date ?? "" })
             
         }
     }
@@ -46,7 +46,7 @@ struct AllListView: View {
     }
     private var groupedMemoHistory: [(String, [MemoModel])] {
         let groupedMemos = Dictionary(grouping: memoViewModel.memoHistory) { memo in
-            formatDate(dateString: memo.time)
+            formatDate(dateString: memo.memo_date)
         }
         return groupedMemos.sorted(by: { $0.key > $1.key })
     }

@@ -10,14 +10,20 @@ import SwiftUI
 struct PartListView: View {
     @EnvironmentObject var memoViewModel: MemoViewModel
     var emotion_num = static_num
-    
+    var ada = [
+        "레드아니고래드",
+        "래오아니고레오",
+        "나나아니고라라",
+        "푸린아니고푸딩",
+        "소람아니고소라",
+    ]
     
     var body: some View {
         List {
             ForEach(groupedMemoHistory, id: \.0) { date, memos in
                 Section(header: Text(formatSectionHeader(dateString: date))) {
                     ForEach(memos,id: \.self) { memo in
-//                    ForEach(memos.sorted(by: { $0.time ?? "" > $1.time ?? "" }), id: \.self) { memo in
+                        //                    ForEach(memos.sorted(by: { $0.time ?? "" > $1.time ?? "" }), id: \.self) { memo in
                         NavigationLink(destination: MemoUpdateView(memo: memo)) {
                             Text(memo.content)
                         }
@@ -25,7 +31,7 @@ struct PartListView: View {
                     }
                     .onDelete(perform: { indexSet in
                         deleteRow(at: indexSet)
-//                        print("indexset:\(indexSet)")
+                        //                        print("indexset:\(indexSet)")
                         writeToFile()
                     })
                 }
@@ -35,8 +41,8 @@ struct PartListView: View {
         }
         .onAppear(){
             memoViewModel.memoHistory=memoViewModel.filterMemosByEmotion(emotion: String(emotion_num))
-//            ReadToFile()
-            memoViewModel.memoHistory.sort(by: { $0.time ?? "" > $1.time ?? "" })
+            //            ReadToFile()
+            memoViewModel.memoHistory.sort(by: { $0.memo_date ?? "" > $1.memo_date ?? "" })
             print(memoViewModel.memoHistory)
             
         }
@@ -46,11 +52,11 @@ struct PartListView: View {
         if let first = offsets.first{
             memoViewModel.memoHistory.remove(at: first)
         }
-//        print(memoViewModel.memoHistory)
+        //        print(memoViewModel.memoHistory)
     }
     private var groupedMemoHistory: [(String, [MemoModel])] {
         let groupedMemos = Dictionary(grouping: memoViewModel.memoHistory) { memo in
-            formatDate(dateString: memo.time)
+            formatDate(dateString: memo.memo_date)
         }
         return groupedMemos.sorted(by: { $0.key > $1.key })
     }
@@ -173,5 +179,6 @@ struct PartListView: View {
 #Preview {
     PartListView()
 }
+
 
 

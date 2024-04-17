@@ -71,7 +71,7 @@ struct MemoCreateView: View {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let dateString = dateFormatter.string(from: currentDate)
-        self.memoViewModel.tmpMemo.time = dateString
+        self.memoViewModel.tmpMemo.memo_date = dateString
         self.memoViewModel.tmpMemo.emotion = String(emotion_num)
         print(memoViewModel.tmpMemo)
         memoViewModel.memoHistory.append(memoViewModel.tmpMemo)
