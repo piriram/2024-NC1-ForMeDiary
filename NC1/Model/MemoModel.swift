@@ -18,7 +18,7 @@ struct MemoModel:Hashable, Identifiable ,Codable {
 class MemoViewModel:ObservableObject{
     @Published var tmpMemo : MemoModel = MemoModel(content: "")
     @Published var memoHistory : [MemoModel] = []
-    
+    let emojis = ["피카츄", "파이리", "꼬북이", "이상해씨"]
     func filterMemosByEmotion(emotion: String) -> [MemoModel] {
             return memoHistory.filter { $0.emotion == emotion }
         }

@@ -9,17 +9,17 @@ import SwiftUI
 
 struct CircleView: View {
     let radiusScale: CGFloat
-    let text: String
+    let idx: Int
     @EnvironmentObject var memo:MemoViewModel
     
     var body: some View {
-        NavigationLink(destination: PartListView(emotion_num: Int(text) ?? static_num)){
+        NavigationLink(destination: PartListView(emotion_num: idx)){
             ZStack {
                 Circle()
                     .foregroundColor(Color.blue.opacity(0.5))
                     .frame(width: 50 * radiusScale, height: 50 * radiusScale)
                 
-                Text(text)
+                Text(memo.emojis[idx])
                     .foregroundColor(.white)
                     .font(.caption)
             }

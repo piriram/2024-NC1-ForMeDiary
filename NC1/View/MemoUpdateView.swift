@@ -74,8 +74,11 @@ struct MemoUpdateView: View {
     func saveData(){
         memo.emotion = String(emotion_num)
         if let index = memoViewModel.memoHistory.firstIndex(where: { $0.id == memo.id }) {
-            memoViewModel.memoHistory[index] = memo
+            
+            memoViewModel.memoHistory.remove(at: index)
+            
             print("너가찾은애들:\(memoViewModel.memoHistory[index])")
+            
         }
         else{
             print("어라")

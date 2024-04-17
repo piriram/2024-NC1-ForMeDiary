@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PartListView: View {
     @EnvironmentObject var memoViewModel: MemoViewModel
+    @State var lll:[MemoModel] = []
     var emotion_num = static_num
     var ada = [
         "레드아니고래드",
@@ -31,8 +32,13 @@ struct PartListView: View {
                     }
                     .onDelete(perform: { indexSet in
                         deleteRow(at: indexSet)
+                        print("onDelete:\(memoViewModel.memoHistory)")
                         //                        print("indexset:\(indexSet)")
                         writeToFile()
+                        lll=memoViewModel.filterMemosByEmotion(emotion: String(emotion_num))
+                        //            ReadToFile()
+                        lll.sort(by: { $0.memo_date ?? "" > $1.memo_date ?? "" })
+                        print("lll:\(lll)")
                     })
                 }
             }
@@ -40,10 +46,12 @@ struct PartListView: View {
             
         }
         .onAppear(){
-            memoViewModel.memoHistory=memoViewModel.filterMemosByEmotion(emotion: String(emotion_num))
+            lll=memoViewModel.filterMemosByEmotion(emotion: String(emotion_num))
             //            ReadToFile()
-            memoViewModel.memoHistory.sort(by: { $0.memo_date ?? "" > $1.memo_date ?? "" })
-            print(memoViewModel.memoHistory)
+            lll.sort(by: { $0.memo_date ?? "" > $1.memo_date ?? "" })
+            print("lll:\(lll)")
+            print("emotion_num:\(emotion_num)")
+//            print(memoViewModel.memoHistory)
             
         }
     }
@@ -55,7 +63,7 @@ struct PartListView: View {
         //        print(memoViewModel.memoHistory)
     }
     private var groupedMemoHistory: [(String, [MemoModel])] {
-        let groupedMemos = Dictionary(grouping: memoViewModel.memoHistory) { memo in
+        let groupedMemos = Dictionary(grouping: lll) { memo in
             formatDate(dateString: memo.memo_date)
         }
         return groupedMemos.sorted(by: { $0.key > $1.key })
@@ -85,6 +93,7 @@ struct PartListView: View {
         // JSONEncoder를 사용하여 memoViewModel.tmpMemo를 JSON으로 인코딩
         let encoder = JSONEncoder()
         do {
+//            print("PartListView의 \(memoViewModel.memoHistory)") 없음
             let memoData = try encoder.encode(memoViewModel.memoHistory)
             // 파일에 데이터를 쓰기
             try memoData.write(to: textPath)

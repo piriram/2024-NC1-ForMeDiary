@@ -9,10 +9,10 @@ import SwiftUI
 
 struct EmotionMainView: View {
     @EnvironmentObject var memoViewModel: MemoViewModel
-    let emojis = ["피카츄", "파이리", "꼬북이", "이상해씨"]
+    @State private var emotionCounts: [String: Int] = [:]
     
     var body: some View {
-        let emotionCounts = memoViewModel.countEmotionOccurrences()
+         
         
         return NavigationStack {
             VStack {
@@ -20,7 +20,7 @@ struct EmotionMainView: View {
                 HStack {
                     ForEach(emotionCounts.sorted(by: { $0.value > $1.value }), id: \.key) { emotion, count in
                         
-                        CircleView(radiusScale: CGFloat(count), text: emojis[Int(emotion) ?? static_num])
+                        CircleView(radiusScale: CGFloat(count), idx: Int(emotion) ?? static_num)
                         
                     }
                     
@@ -34,6 +34,7 @@ struct EmotionMainView: View {
                 .padding()
             }
             .onAppear(){
+                emotionCounts = memoViewModel.countEmotionOccurrences()
                 ReadToFile()
                 
             }
