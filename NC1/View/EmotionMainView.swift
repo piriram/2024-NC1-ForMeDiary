@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EmotionMainView: View {
     @EnvironmentObject var memoViewModel: MemoViewModel
-    
+    let emojis = ["피카츄", "파이리", "꼬북이", "이상해씨"]
     
     var body: some View {
         let emotionCounts = memoViewModel.countEmotionOccurrences()
@@ -20,7 +20,7 @@ struct EmotionMainView: View {
                 HStack {
                     ForEach(emotionCounts.sorted(by: { $0.value > $1.value }), id: \.key) { emotion, count in
                         
-                        CircleView(radiusScale: CGFloat(count), text: emotion)
+                        CircleView(radiusScale: CGFloat(count), text: emojis[Int(emotion) ?? static_num])
                         
                     }
                     

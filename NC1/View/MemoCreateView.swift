@@ -19,6 +19,7 @@ struct MemoCreateView: View {
         VStack(spacing:60) {
             CurrentDateView()
             EmotionView(emotion_num: $emotion_num)
+                .frame(height: 150)
 
             TextEditor(text: $memoViewModel.tmpMemo.content)
                 .lineSpacing(10)

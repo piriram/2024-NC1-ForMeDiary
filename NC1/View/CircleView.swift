@@ -10,6 +10,7 @@ import SwiftUI
 struct CircleView: View {
     let radiusScale: CGFloat
     let text: String
+    @EnvironmentObject var memo:MemoViewModel
     
     var body: some View {
         NavigationLink(destination: PartListView(emotion_num: Int(text) ?? static_num)){
