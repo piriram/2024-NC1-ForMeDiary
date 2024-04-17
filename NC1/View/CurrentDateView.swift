@@ -11,7 +11,7 @@ struct CurrentDateView: View {
     
     var body: some View {
         
-        HStack() {
+        HStack(alignment: .top) {
 
             Spacer()
             Image(systemName: "calendar")
@@ -21,7 +21,6 @@ struct CurrentDateView: View {
             Spacer()
 
         }
-        .frame(height: 60)
         .background(.white)
         .cornerRadius(20)
 

@@ -16,10 +16,11 @@ struct MemoCreateView: View {
 
     
     var body: some View {
-        VStack(spacing:60) {
+        VStack() {
             CurrentDateView()
             EmotionView(emotion_num: $emotion_num)
-                .frame(height: 150)
+                .frame(height: 120)
+                .padding(.vertical)
 
             TextEditor(text: $memoViewModel.tmpMemo.content)
                 .lineSpacing(10)
@@ -28,7 +29,7 @@ struct MemoCreateView: View {
                     RoundedRectangle(cornerRadius: 25)
                         .stroke(Color.gray, lineWidth: 1)
                 )
-                .frame(maxHeight:300)
+                .padding(.vertical)
 
             Button(action: {
                 //TODO: 함수로 묶기
