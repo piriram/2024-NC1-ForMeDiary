@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MemoEmotionDistributionView: View {
+struct EmotionMainView: View {
     @EnvironmentObject var memoViewModel: MemoViewModel
     
     var body: some View {
@@ -104,5 +104,5 @@ struct MemoEmotionDistributionView: View {
 }
 
 #Preview {
-    MemoEmotionDistributionView()
+    EmotionMainView()
 }
