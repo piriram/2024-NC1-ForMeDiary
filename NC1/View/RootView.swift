@@ -32,6 +32,9 @@ struct RootView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 80)
+                            .shadow(radius: 5)
+//                            .shadow(color: Color.black.opacity(0.5), radius: 5, x: -3, y: -3)
+
                     }
                     .padding()
                 }

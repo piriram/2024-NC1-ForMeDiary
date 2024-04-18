@@ -17,7 +17,7 @@ struct MemoCreateView: View {
     
     var body: some View {
         VStack() {
-            CurrentDateView()
+            CurrentDateView(dateString: $memoViewModel.tmpMemo.memo_date)
             EmotionView(emotion_num: $emotion_num)
                 .frame(height: 120)
                 .padding(.vertical)

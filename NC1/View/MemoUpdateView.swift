@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MemoUpdateView: View {
-
+    
     @EnvironmentObject var memoViewModel: MemoViewModel
     @Environment(\.presentationMode) var presentationMode
     @State var memo: MemoModel
@@ -18,7 +18,7 @@ struct MemoUpdateView: View {
     
     var body: some View {
         VStack(spacing:60) {
-            
+            CurrentDateView(dateString: $memo.memo_date)
             TextEditor(text: $editedMemo)
                 .lineSpacing(10)
                 .disableAutocorrection(true)
@@ -64,7 +64,7 @@ struct MemoUpdateView: View {
             editedMemo = memo.content
         }
         .padding()
-        .navigationBarTitle("상세보기")
+//        .navigationBarTitle("상세보기")
         .alert(isPresented: $showingAlert) {
             Alert(title: Text("내용을 입력해주세요."), message: nil,
                   dismissButton: .default(Text("넹")))
@@ -77,7 +77,9 @@ struct MemoUpdateView: View {
             
             memoViewModel.memoHistory.remove(at: index)
             
-            print("너가찾은애들:\(memoViewModel.memoHistory[index])")
+//            print("너가찾은애들:\(memoViewModel.memoHistory[index])")
+            
+            
             
         }
         else{

@@ -15,7 +15,7 @@ struct DetailCell: View {
     @State var emotion_num = static_num
     var body: some View {
         VStack(spacing:60) {
-            CurrentDateView()
+            CurrentDateView(dateString: $memoViewModel.tmpMemo.memo_date)
 
             TextEditor(text: $memoViewModel.tmpMemo.content)
                 .lineSpacing(10)
@@ -65,6 +65,3 @@ struct DetailCell: View {
     }
 }
 
-#Preview {
-    DetailCell()
-}

@@ -124,7 +124,7 @@ class MemoViewModel:ObservableObject{
     }
     
 }
-var fileName = "data1.txt"
+var fileName = "data3.txt"
 var folderName = "NC1"
 //        .ignoresSafeArea()
 var ada = [

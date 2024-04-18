@@ -21,15 +21,15 @@ struct PartListView: View {
                     ForEach(memos) { memo in
                         NavigationLink(destination: MemoUpdateView(memo: memo)) {
                             Text(memo.content)
-                            Text("id:\(memo.id)")
+//                            Text("id:\(memo.id)")
                         }
                     }
                     .onDelete { indices in
                         // 삭제할 요소의 인덱스를 사용하여 실제로 요소를 삭제
                         for index in indices {
                             let memo = memos[index] // 삭제할 메모
-                            print("Deleted memo ID: \(memo.id)")
-                            print("Deleted memo content: \(memo.content)")
+//                            print("Deleted memo ID: \(memo.id)")
+//                            print("Deleted memo content: \(memo.content)")
                             
                             // memoViewModel.memoHistory에서 해당 메모를 삭제
                             if let memoIndex = memoViewModel.memoHistory.firstIndex(where: { $0.id == memo.id }) {
@@ -48,7 +48,11 @@ struct PartListView: View {
                 }
             }
         }
-
+        .scrollDismissesKeyboard(.interactively)
+        .listStyle(.plain)
+        .navigationTitle(Text("감정 기록"))
+        .navigationBarTitleDisplayMode(.inline)
+        .accessibilityHidden(true)
         .onAppear(){
             lll=memoViewModel.filterMemosByEmotion(emotion: String(emotion_num))
             lll.sort(by: { $0.memo_date ?? "" > $1.memo_date ?? "" })
