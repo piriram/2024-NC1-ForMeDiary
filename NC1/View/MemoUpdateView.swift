@@ -17,7 +17,7 @@ struct MemoUpdateView: View {
     @State var emotion_num = static_num
     
     var body: some View {
-        VStack(spacing:60) {
+        VStack() {
             CurrentDateView(dateString: $memo.memo_date)
             TextEditor(text: $editedMemo)
                 .lineSpacing(10)
@@ -27,6 +27,7 @@ struct MemoUpdateView: View {
                         .stroke(Color.gray, lineWidth: 1)
                 )
                 .frame(maxHeight:300)
+                .padding(.vertical)
             EmotionView(emotion_num: $emotion_num)
             Spacer()
             

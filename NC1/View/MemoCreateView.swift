@@ -110,9 +110,6 @@ struct MemoCreateView: View {
 
 }
 
-#Preview {
-    MemoCreateView()
-}
 
 // 함수를 만들고 사용하는 걸까, 같은 코드가 반복되면 함수로 만드는 걸까,, 뭐가 좋은건지 정해져있을까?
 // MISSION:함수로 묶어보고 검사받기
