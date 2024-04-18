@@ -33,6 +33,39 @@ class MemoViewModel:ObservableObject{
         }
         return emotionCounts
     }
+    func deleteRow(at offsets: IndexSet) {
+        if let first = offsets.first{
+            memoHistory.remove(at: first)
+        }
+    }
+    var groupedMemoHistory: [(String, [MemoModel])] {
+        let groupedMemos = Dictionary(grouping: memoHistory) { memo in
+            formatDate(dateString: memo.memo_date)
+        }
+        return groupedMemos.sorted(by: { $0.key > $1.key })
+    }
+    func formatDate(dateString: String?) -> String {
+        guard let dateString = dateString else { return "" }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = dateFormatter.date(from: dateString)
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: date ?? Date())
+    }
+    func formatSectionHeader(dateString: String) -> String {
+         let dateFormatter = DateFormatter()
+         dateFormatter.dateFormat = "yyyy-MM-dd"
+         let date = dateFormatter.date(from: dateString) ?? Date()
+         let today = Calendar.current.startOfDay(for: Date())
+         let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: today)!
+         if Calendar.current.isDate(date, inSameDayAs: today) {
+             return "Today"
+         } else if Calendar.current.isDate(date, inSameDayAs: yesterday) {
+             return "Yesterday"
+         } else {
+             return dateString
+         }
+     }
     func ReadToFile(){
         
         //파일매니저 인스턴스 생성
