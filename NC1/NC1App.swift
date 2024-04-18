@@ -13,7 +13,7 @@ struct NC1App: App {
     
     var body: some Scene {
         WindowGroup {
-            EmotionMainView()
+            RootView()
         }
         .environmentObject(memo)
         

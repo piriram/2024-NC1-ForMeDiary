@@ -14,7 +14,7 @@ struct RootView: View {
         
         NavigationView {
             VStack {
-                PartListView()
+                AllListView()
                 Spacer()
                 NavigationLink(destination: MemoCreateView()) {
                     Image("마스터볼")
