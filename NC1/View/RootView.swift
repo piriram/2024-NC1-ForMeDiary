@@ -13,22 +13,37 @@ struct RootView: View {
     var body: some View {
         
         NavigationView {
-            VStack {
-                AllListView()
-                Spacer()
-                NavigationLink(destination: MemoCreateView()) {
-                    Image("마스터볼")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
+            ZStack {
+                EmotionMainView()
+                VStack {
+                    
+                    HStack {
+                        Spacer()
+                        NavigationLink(destination: AllListView()){
+                            Text("See all")
+                                .padding()
+                        }
+                    }
+                    Spacer()
+                    
+                    Spacer()
+                    NavigationLink(destination: MemoCreateView()) {
+                        Image("마스터볼")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 80)
+                    }
+                    .padding()
                 }
-                .padding()
+                
             }
             .navigationBarTitle("Memo List")
             
             
         }
-//        
-    
+        
+        //
+        
     }
 }
 

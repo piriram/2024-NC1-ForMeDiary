@@ -11,41 +11,48 @@ struct PartListView: View {
     @EnvironmentObject var memoViewModel: MemoViewModel
     @State var lll:[MemoModel] = []
     var emotion_num = static_num
-    var ada = [
-        "레드아니고래드",
-        "래오아니고레오",
-        "나나아니고라라",
-        "푸린아니고푸딩",
-        "소람아니고소라",
-    ]
+    @State var ttt : [(String, [MemoModel])] = []
+   
     
     var body: some View {
         List {
-            ForEach(groupedMemoHistory, id: \.0) { date, memos in
+            ForEach(ttt, id: \.0) { date, memos in
                 Section(header: Text(formatSectionHeader(dateString: date))) {
-                    ForEach(memos,id: \.id) { memo in
+                    ForEach(memos) { memo in
                         NavigationLink(destination: MemoUpdateView(memo: memo)) {
                             Text(memo.content)
+                            Text("id:\(memo.id)")
+                        }
+                    }
+                    .onDelete { indices in
+                        // 삭제할 요소의 인덱스를 사용하여 실제로 요소를 삭제
+                        for index in indices {
+                            let memo = memos[index] // 삭제할 메모
+                            print("Deleted memo ID: \(memo.id)")
+                            print("Deleted memo content: \(memo.content)")
+                            
+                            // memoViewModel.memoHistory에서 해당 메모를 삭제
+                            if let memoIndex = memoViewModel.memoHistory.firstIndex(where: { $0.id == memo.id }) {
+                                memoViewModel.memoHistory.remove(at: memoIndex)
+                            }
                         }
                         
-                    }
-                    .onDelete(perform: { indexSet in
-//                        deleteRow(at: indexSet)
-                        memoViewModel.memoHistory.remove(atOffsets: indexSet)
-//                        print("onDelete:\(memoViewModel.memoHistory)")
-
-                        writeToFile()
-                        lll=memoViewModel.filterMemosByEmotion(emotion: String(emotion_num))
+                        // 파일에 쓰기
+                        memoViewModel.writeToFile()
+                        
+                        // 필요한 경우 다시 필터링 및 정렬
+                        lll = memoViewModel.filterMemosByEmotion(emotion: String(emotion_num))
                         lll.sort(by: { $0.memo_date ?? "" > $1.memo_date ?? "" })
-                    })
+                        ttt = groupedMemoHistory
+                    }
                 }
             }
-            
-            
         }
+
         .onAppear(){
             lll=memoViewModel.filterMemosByEmotion(emotion: String(emotion_num))
             lll.sort(by: { $0.memo_date ?? "" > $1.memo_date ?? "" })
+            ttt = groupedMemoHistory
             print("lll:\(lll)")
             print("emotion_num:\(emotion_num)")
             
@@ -73,32 +80,7 @@ struct PartListView: View {
         return dateFormatter.string(from: date ?? Date())
     }
     
-    func writeToFile() {
-        // 파일매니저 인스턴스 생성
-        let fileManager = FileManager.default
-        // 사용자의 문서 경로
-        let documentPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        // 파일을 저장할 디렉토리 경로(URL) 반환 = 경로 추가 여기서는 문서/새 폴더
-        let directoryPath = documentPath.appendingPathComponent(folderName)
-        
-        print(documentPath.path)
-        // 폴더에 파일 생성
-        let textPath = directoryPath.appendingPathComponent(fileName)
-        
-        // JSONEncoder를 사용하여 memoViewModel.tmpMemo를 JSON으로 인코딩
-        let encoder = JSONEncoder()
-        do {
-//            print("PartListView의 \(memoViewModel.memoHistory)") 없음
-            let memoData = try encoder.encode(memoViewModel.memoHistory)
-            // 파일에 데이터를 쓰기
-            try memoData.write(to: textPath)
-            print("Memo data saved to: \(textPath)")
-        } catch {
-            print("Failed to save memo data:", error)
-        }
-        
-        
-    }
+   
     func ReadToFile(){
         
         //파일매니저 인스턴스 생성
@@ -176,12 +158,6 @@ struct PartListView: View {
             return dateString
         }
     }
-}
-
-
-
-#Preview {
-    PartListView()
 }
 
 
