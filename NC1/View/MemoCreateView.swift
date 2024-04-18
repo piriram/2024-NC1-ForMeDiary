@@ -11,8 +11,10 @@ struct MemoCreateView: View {
     @State var content:String = ""
     @EnvironmentObject var memoViewModel : MemoViewModel
     @Environment(\.presentationMode) var presentationMode
-    @State var showingAlert = false
+    @State var showingAlert1 = false
+    @State var showingAlert2 = false
     @State var emotion_num = static_num
+    
 
     
     var body: some View {
@@ -33,14 +35,14 @@ struct MemoCreateView: View {
 
             Button(action: {
                 //TODO: 함수로 묶기
-                if memoViewModel.tmpMemo.content != ""{
+                if memoViewModel.tmpMemo.content != "" ||  Int(memoViewModel.tmpMemo.emotion ?? String(static_num)) != static_num{
                     
                     saveData()
-                    writeToFile()
+                    memoViewModel.writeToFile()
                     self.presentationMode.wrappedValue.dismiss()
                 }
                 else{
-                    showingAlert = true
+                    showingAlert1 = true
                 }
                 
             }, label: {
@@ -56,10 +58,7 @@ struct MemoCreateView: View {
         }
         
         .padding()
-        .onAppear(){
-            print("hi")
-        }
-        .alert(isPresented: $showingAlert) {
+        .alert(isPresented: $showingAlert1) {
             Alert(title: Text("내용을 입력해주세요."), message: nil,
                   dismissButton: .default(Text("넹")))
         }
@@ -78,32 +77,6 @@ struct MemoCreateView: View {
         print(memoViewModel.tmpMemo)
         memoViewModel.memoHistory.append(memoViewModel.tmpMemo)
         memoViewModel.tmpMemo = MemoModel(content: "")
-        
-    }
-    func writeToFile() {
-        
-        // 파일매니저 인스턴스 생성
-        let fileManager = FileManager.default
-        // 사용자의 문서 경로
-        let documentPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                // 파일을 저장할 디렉토리 경로(URL) 반환 = 경로 추가 여기서는 문서/새 폴더
-                let directoryPath = documentPath.appendingPathComponent(folderName)
-                
-        print(documentPath.path)
-        // 폴더에 파일 생성
-        let textPath = directoryPath.appendingPathComponent(fileName)
-        
-        // JSONEncoder를 사용하여 memoViewModel.tmpMemo를 JSON으로 인코딩
-        let encoder = JSONEncoder()
-        do {
-            let memoData = try encoder.encode(memoViewModel.memoHistory)
-            // 파일에 데이터를 쓰기
-            try memoData.write(to: textPath)
-            print("Memo data saved to: \(textPath)")
-        } catch {
-            print("Failed to save memo data:", error)
-        }
-        
         
     }
 

@@ -15,15 +15,23 @@ struct CircleView: View {
     var body: some View {
         NavigationLink(destination: PartListView(emotion_num: idx)){
             ZStack {
-                Image(memo.emojis[idx])
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundColor(Color.blue.opacity(0.5))
-                    .frame(height: 40 * radiusScale)
-//
-//                Text(memo.emojis[idx])
-//                    .foregroundColor(.white)
-//                    .font(.caption)
+                if idx<static_num{
+                    Image(memo.emojis[idx])
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundColor(Color.white.opacity(0.5))
+                        .frame(height: 40 * radiusScale)
+                }
+                else{
+                    ZStack{
+                        Circle()
+                            .foregroundColor(Color.white.opacity(0.1))
+                            .frame(height: 40 * radiusScale)
+                        Image(systemName: "questionmark")
+                            .frame(height: 20 * radiusScale)
+                    }
+                }
+
             }
         }
     }

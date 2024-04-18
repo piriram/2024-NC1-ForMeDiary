@@ -10,6 +10,7 @@ import SwiftUI
 struct EmotionMainView: View {
     @EnvironmentObject var memoViewModel: MemoViewModel
     @State private var emotionCounts: [String: Int] = [:]
+
     
     
     var body: some View {
@@ -20,14 +21,17 @@ struct EmotionMainView: View {
                 HStack {
                     ForEach(emotionCounts.sorted(by: { $0.value > $1.value }), id: \.key) { emotion, count in
                         
+                        
                         CircleView(radiusScale: CGFloat(count), idx: Int(emotion) ?? static_num)
                         
                     }
                     
                 }
+                .padding(.horizontal)
                 Spacer()
             }//
             .onAppear(){
+                
                 memoViewModel.ReadToFile()
                 emotionCounts = memoViewModel.countEmotionOccurrences()
                 print("emotionCounts:\(emotionCounts)")

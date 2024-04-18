@@ -12,7 +12,6 @@
 		211350862BCEE2D30007CBBA /* EmotionMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211350852BCEE2D30007CBBA /* EmotionMainView.swift */; };
 		211350882BCEE73F0007CBBA /* AllListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211350872BCEE73F0007CBBA /* AllListView.swift */; };
 		2113508A2BCF504A0007CBBA /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211350892BCF504A0007CBBA /* CircleView.swift */; };
-		211350BA2BD0B0EA0007CBBA /* PartListView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211350B92BD0B0EA0007CBBA /* PartListView2.swift */; };
 		214462F92BC96FF300C29F51 /* NC1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214462F82BC96FF300C29F51 /* NC1App.swift */; };
 		214462FB2BC96FF300C29F51 /* MemoCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214462FA2BC96FF300C29F51 /* MemoCreateView.swift */; };
 		214462FD2BC96FF500C29F51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 214462FC2BC96FF500C29F51 /* Assets.xcassets */; };
@@ -30,7 +29,6 @@
 		211350852BCEE2D30007CBBA /* EmotionMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionMainView.swift; sourceTree = "<group>"; };
 		211350872BCEE73F0007CBBA /* AllListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListView.swift; sourceTree = "<group>"; };
 		211350892BCF504A0007CBBA /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
-		211350B92BD0B0EA0007CBBA /* PartListView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartListView2.swift; sourceTree = "<group>"; };
 		214462F52BC96FF300C29F51 /* NC1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NC1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		214462F82BC96FF300C29F51 /* NC1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NC1App.swift; sourceTree = "<group>"; };
 		214462FA2BC96FF300C29F51 /* MemoCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCreateView.swift; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 				214462FA2BC96FF300C29F51 /* MemoCreateView.swift */,
 				214463122BCAFBF500C29F51 /* MemoUpdateView.swift */,
 				214463102BCAF86100C29F51 /* PartListView.swift */,
-				211350B92BD0B0EA0007CBBA /* PartListView2.swift */,
 				2144630E2BCAF2C400C29F51 /* RootView.swift */,
 			);
 			path = View;
@@ -201,7 +198,6 @@
 				214462F92BC96FF300C29F51 /* NC1App.swift in Sources */,
 				211350802BCE2CC00007CBBA /* EmotionView.swift in Sources */,
 				214463152BCB041600C29F51 /* CurrentDateView.swift in Sources */,
-				211350BA2BD0B0EA0007CBBA /* PartListView2.swift in Sources */,
 				211350862BCEE2D30007CBBA /* EmotionMainView.swift in Sources */,
 				214463112BCAF86100C29F51 /* PartListView.swift in Sources */,
 				211350882BCEE73F0007CBBA /* AllListView.swift in Sources */,

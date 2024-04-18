@@ -28,23 +28,26 @@ struct MemoUpdateView: View {
                 )
                 .frame(maxHeight:300)
                 .padding(.vertical)
+            
             EmotionView(emotion_num: $emotion_num)
             Spacer()
             
             Button(action: {
+                memo.emotion=String(emotion_num)
+                print("memo.emotion:\(memo.emotion)")
                 memo.content=editedMemo
+                
                 if memo.content != ""{
-                    
-                    saveData()
+                    if let index = memoViewModel.memoHistory.firstIndex(where: { $0.id == memo.id }) {
+                        memoViewModel.memoHistory[index]=memo
+                    }
                     memoViewModel.writeToFile()
+                    print("왜 안도ㅔㅐ")
                     self.presentationMode.wrappedValue.dismiss()
                 }
                 else{
                     showingAlert = true
                 }
-                // Save edited content
-                
-                memoViewModel.writeToFile()
                 print("버튼 클릭")
                 self.presentationMode.wrappedValue.dismiss()
             }, label: {
@@ -72,15 +75,15 @@ struct MemoUpdateView: View {
         }
         
     }
-    func saveData(){
-        memo.emotion = String(emotion_num)
-        if let index = memoViewModel.memoHistory.firstIndex(where: { $0.id == memo.id }) {       
-            memoViewModel.memoHistory.remove(at: index)
-        }
-        else{
-            print("어라")
-        }
-    }
+    //    func saveData(){
+    //        memo.emotion = String(emotion_num)
+    //        if let index = memoViewModel.memoHistory.firstIndex(where: { $0.id == memo.id }) {
+    //            memoViewModel.memoHistory[index].
+    //        }
+    //        else{
+    //            print("어라")
+    //        }
+    //    }
 }
 
 
