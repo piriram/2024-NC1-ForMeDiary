@@ -23,22 +23,20 @@ struct PartListView: View {
         List {
             ForEach(groupedMemoHistory, id: \.0) { date, memos in
                 Section(header: Text(formatSectionHeader(dateString: date))) {
-                    ForEach(memos,id: \.self) { memo in
-                        //                    ForEach(memos.sorted(by: { $0.time ?? "" > $1.time ?? "" }), id: \.self) { memo in
+                    ForEach(memos,id: \.id) { memo in
                         NavigationLink(destination: MemoUpdateView(memo: memo)) {
                             Text(memo.content)
                         }
                         
                     }
                     .onDelete(perform: { indexSet in
-                        deleteRow(at: indexSet)
-                        print("onDelete:\(memoViewModel.memoHistory)")
-                        //                        print("indexset:\(indexSet)")
+//                        deleteRow(at: indexSet)
+                        memoViewModel.memoHistory.remove(atOffsets: indexSet)
+//                        print("onDelete:\(memoViewModel.memoHistory)")
+
                         writeToFile()
                         lll=memoViewModel.filterMemosByEmotion(emotion: String(emotion_num))
-                        //            ReadToFile()
                         lll.sort(by: { $0.memo_date ?? "" > $1.memo_date ?? "" })
-                        print("lll:\(lll)")
                     })
                 }
             }
@@ -47,11 +45,9 @@ struct PartListView: View {
         }
         .onAppear(){
             lll=memoViewModel.filterMemosByEmotion(emotion: String(emotion_num))
-            //            ReadToFile()
             lll.sort(by: { $0.memo_date ?? "" > $1.memo_date ?? "" })
             print("lll:\(lll)")
             print("emotion_num:\(emotion_num)")
-//            print(memoViewModel.memoHistory)
             
         }
     }
@@ -60,7 +56,6 @@ struct PartListView: View {
         if let first = offsets.first{
             memoViewModel.memoHistory.remove(at: first)
         }
-        //        print(memoViewModel.memoHistory)
     }
     private var groupedMemoHistory: [(String, [MemoModel])] {
         let groupedMemos = Dictionary(grouping: lll) { memo in

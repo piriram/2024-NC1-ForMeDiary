@@ -17,9 +17,9 @@ struct RootView: View {
                 PartListView()
                 Spacer()
                 NavigationLink(destination: MemoCreateView()) {
-                    Image(systemName: "plus.circle.fill")
-                        .font(.system(size: 50))
-                        .foregroundColor(.green)
+                    Image("마스터볼")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
                 }
                 .padding()
             }

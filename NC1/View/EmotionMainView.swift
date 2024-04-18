@@ -27,9 +27,10 @@ struct EmotionMainView: View {
                 }
                 Spacer()
                 NavigationLink(destination: MemoCreateView()) {
-                    Image(systemName: "plus.circle.fill")
-                        .font(.system(size: 50))
-                        .foregroundColor(.green)
+                    Image("마스터볼")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 80)
                 }
                 .padding()
             }

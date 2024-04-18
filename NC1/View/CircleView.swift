@@ -15,13 +15,15 @@ struct CircleView: View {
     var body: some View {
         NavigationLink(destination: PartListView(emotion_num: idx)){
             ZStack {
-                Circle()
+                Image(memo.emojis[idx])
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
                     .foregroundColor(Color.blue.opacity(0.5))
-                    .frame(width: 50 * radiusScale, height: 50 * radiusScale)
-                
-                Text(memo.emojis[idx])
-                    .foregroundColor(.white)
-                    .font(.caption)
+                    .frame(height: 40 * radiusScale)
+//
+//                Text(memo.emojis[idx])
+//                    .foregroundColor(.white)
+//                    .font(.caption)
             }
         }
     }
