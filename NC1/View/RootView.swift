@@ -40,7 +40,7 @@ struct RootView: View {
                 }
                 
             }
-            .navigationBarTitle("Memo List")
+            .navigationBarTitle("Emotional Diary")
             
             
         }

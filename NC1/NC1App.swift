@@ -17,6 +17,7 @@ struct NC1App: App {
         }
         .environmentObject(memo)
         
+        
     }
 }
 

@@ -46,3 +46,5 @@ struct EmotionMainView: View {
 #Preview {
     EmotionMainView()
 }
+
+

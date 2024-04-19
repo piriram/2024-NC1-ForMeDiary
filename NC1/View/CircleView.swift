@@ -20,7 +20,7 @@ struct CircleView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .foregroundColor(Color.white.opacity(0.5))
-                        .frame(height: 40 * radiusScale)
+                        .frame(height: 30 * radiusScale)
                 }
                 else{
                     ZStack{

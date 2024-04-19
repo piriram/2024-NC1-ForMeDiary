@@ -79,6 +79,7 @@ class MemoViewModel:ObservableObject{
         
         //
         let filePath: URL = directoryPath.appendingPathComponent(fileName)
+        print(filePath)
         
         do {
             if !fileManager.fileExists(atPath: directoryPath.path) { //디렉토리가 있는지 확인하고 디렉토리를 만듬
