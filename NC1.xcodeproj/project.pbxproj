@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210153322C42C01C00B113F0 /* SwiftDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210153312C42C01C00B113F0 /* SwiftDataModel.swift */; };
 		211350802BCE2CC00007CBBA /* EmotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2113507F2BCE2CC00007CBBA /* EmotionView.swift */; };
 		211350822BCE2E130007CBBA /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211350812BCE2E130007CBBA /* DetailCell.swift */; };
 		211350862BCEE2D30007CBBA /* EmotionMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211350852BCEE2D30007CBBA /* EmotionMainView.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		210153312C42C01C00B113F0 /* SwiftDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataModel.swift; sourceTree = "<group>"; };
 		2113507F2BCE2CC00007CBBA /* EmotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionView.swift; sourceTree = "<group>"; };
 		211350812BCE2E130007CBBA /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		211350852BCEE2D30007CBBA /* EmotionMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionMainView.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				214463082BC971A900C29F51 /* MemoModel.swift */,
+				210153312C42C01C00B113F0 /* SwiftDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				214462F92BC96FF300C29F51 /* NC1App.swift in Sources */,
 				211350802BCE2CC00007CBBA /* EmotionView.swift in Sources */,
 				214463152BCB041600C29F51 /* CurrentDateView.swift in Sources */,
+				210153322C42C01C00B113F0 /* SwiftDataModel.swift in Sources */,
 				211350862BCEE2D30007CBBA /* EmotionMainView.swift in Sources */,
 				214463112BCAF86100C29F51 /* PartListView.swift in Sources */,
 				211350882BCEE73F0007CBBA /* AllListView.swift in Sources */,
