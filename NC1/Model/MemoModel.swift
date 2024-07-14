@@ -138,7 +138,7 @@ class MemoViewModel:ObservableObject{
         // 파일을 저장할 디렉토리 경로(URL) 반환 = 경로 추가 여기서는 문서/새 폴더
         let directoryPath = documentPath.appendingPathComponent(folderName)
         
-        print(documentPath.path)
+//        print(documentPath.path)
         // 폴더에 파일 생성
         let textPath = directoryPath.appendingPathComponent(fileName)
         
@@ -149,7 +149,7 @@ class MemoViewModel:ObservableObject{
             let memoData = try encoder.encode(memoHistory)
             // 파일에 데이터를 쓰기
             try memoData.write(to: textPath)
-            print("Memo data saved to: \(textPath)")
+//            print("Memo data saved to: \(textPath)")
         } catch {
             print("Failed to save memo data:", error)
         }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 var static_num = 5
 struct MemoCreateView: View {
     @State var content:String = ""
@@ -14,6 +15,7 @@ struct MemoCreateView: View {
     @State var showingAlert1 = false
     @State var showingAlert2 = false
     @State var emotion_num = static_num
+    @Environment(\.modelContext) private var modelContext
     
 
     
@@ -37,8 +39,21 @@ struct MemoCreateView: View {
                 //TODO: 함수로 묶기
                 if memoViewModel.tmpMemo.content != "" ||  Int(memoViewModel.tmpMemo.emotion ?? String(static_num)) != static_num{
                     
-                    saveData()
-                    memoViewModel.writeToFile()
+                    
+                    saveData2()
+                    let 기존 = memoViewModel.tmpMemo
+                    let tmpdata = SwiftDataModel(memo_date: 기존.memo_date, emotion:기존.emotion , content: 기존.content)
+//                    print("memoViewModel.tmpMemo:\(self.memoViewModel.tmpMemo)")
+                    print(tmpdata)
+                    modelContext.insert(tmpdata)
+//                    
+//                    saveData()
+//                    
+//                    memoViewModel.writeToFile()
+                    
+                    
+                    // 데이터가 여기서 생김
+                    
                     self.presentationMode.wrappedValue.dismiss()
                 }
                 else{
@@ -74,12 +89,23 @@ struct MemoCreateView: View {
         let dateString = dateFormatter.string(from: currentDate)
         self.memoViewModel.tmpMemo.memo_date = dateString
         self.memoViewModel.tmpMemo.emotion = String(emotion_num)
-        print(memoViewModel.tmpMemo)
+//        print(memoViewModel.tmpMemo)
         memoViewModel.memoHistory.append(memoViewModel.tmpMemo)
         memoViewModel.tmpMemo = MemoModel(content: "")
         
     }
-
+    func saveData2(){
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateString = dateFormatter.string(from: currentDate)
+        self.memoViewModel.tmpMemo.memo_date = dateString
+        self.memoViewModel.tmpMemo.emotion = String(emotion_num)
+//        print(memoViewModel.tmpMemo)
+//        memoViewModel.memoHistory.append(memoViewModel.tmpMemo)
+//        memoViewModel.tmpMemo = MemoModel(content: "")
+        
+    }
 
 }
 
