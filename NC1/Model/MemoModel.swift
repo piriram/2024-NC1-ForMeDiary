@@ -6,7 +6,8 @@
 //
 
 import Foundation
-
+import SwiftUI
+import SwiftData
 struct MemoModel:Hashable, Identifiable ,Codable {
     var id = UUID()
     var memo_date: String?
@@ -158,6 +159,8 @@ class MemoViewModel:ObservableObject{
     }
     
 }
+
+
 var fileName = "data3.txt"
 var folderName = "NC1"
 //        .ignoresSafeArea()

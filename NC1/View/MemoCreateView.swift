@@ -46,7 +46,8 @@ struct MemoCreateView: View {
 //                    print("memoViewModel.tmpMemo:\(self.memoViewModel.tmpMemo)")
                     print(tmpdata)
                     modelContext.insert(tmpdata)
-//                    
+                    memoViewModel.tmpMemo = MemoModel(content: "")
+//
 //                    saveData()
 //                    
 //                    memoViewModel.writeToFile()
@@ -71,7 +72,9 @@ struct MemoCreateView: View {
                 
             })
         }
-        
+        .onAppear(){
+            print(modelContext.sqliteCommand)
+        }
         .padding()
         .alert(isPresented: $showingAlert1) {
             Alert(title: Text("내용을 입력해주세요."), message: nil,
