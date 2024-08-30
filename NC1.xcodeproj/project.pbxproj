@@ -21,6 +21,8 @@
 		214463112BCAF86100C29F51 /* PartListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214463102BCAF86100C29F51 /* PartListView.swift */; };
 		214463132BCAFBF500C29F51 /* MemoUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214463122BCAFBF500C29F51 /* MemoUpdateView.swift */; };
 		214463152BCB041600C29F51 /* CurrentDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214463142BCB041600C29F51 /* CurrentDateView.swift */; };
+		21C11E532C81F215002A7411 /* SDMemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E522C81F215002A7411 /* SDMemoModel.swift */; };
+		21C11E562C81F239002A7411 /* ModelContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E552C81F239002A7411 /* ModelContext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		214463102BCAF86100C29F51 /* PartListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartListView.swift; sourceTree = "<group>"; };
 		214463122BCAFBF500C29F51 /* MemoUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoUpdateView.swift; sourceTree = "<group>"; };
 		214463142BCB041600C29F51 /* CurrentDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDateView.swift; sourceTree = "<group>"; };
+		21C11E522C81F215002A7411 /* SDMemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDMemoModel.swift; sourceTree = "<group>"; };
+		21C11E552C81F239002A7411 /* ModelContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContext.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 		214462F72BC96FF300C29F51 /* NC1 */ = {
 			isa = PBXGroup;
 			children = (
+				21C11E542C81F228002A7411 /* Extension */,
 				214463062BC9701B00C29F51 /* View */,
 				214463072BC9702400C29F51 /* Model */,
 				2144630B2BC979D700C29F51 /* ViewModel */,
@@ -94,6 +99,31 @@
 		214463062BC9701B00C29F51 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				21C11E512C81F1C7002A7411 /* NewView */,
+				21C11E502C81F1AB002A7411 /* OldView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		214463072BC9702400C29F51 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				214463082BC971A900C29F51 /* MemoModel.swift */,
+				21C11E522C81F215002A7411 /* SDMemoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2144630B2BC979D700C29F51 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		21C11E502C81F1AB002A7411 /* OldView */ = {
+			isa = PBXGroup;
+			children = (
 				211350872BCEE73F0007CBBA /* AllListView.swift */,
 				211350892BCF504A0007CBBA /* CircleView.swift */,
 				214463142BCB041600C29F51 /* CurrentDateView.swift */,
@@ -105,22 +135,22 @@
 				214463102BCAF86100C29F51 /* PartListView.swift */,
 				2144630E2BCAF2C400C29F51 /* RootView.swift */,
 			);
-			path = View;
+			path = OldView;
 			sourceTree = "<group>";
 		};
-		214463072BC9702400C29F51 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				214463082BC971A900C29F51 /* MemoModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		2144630B2BC979D700C29F51 /* ViewModel */ = {
+		21C11E512C81F1C7002A7411 /* NewView */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = ViewModel;
+			path = NewView;
+			sourceTree = "<group>";
+		};
+		21C11E542C81F228002A7411 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				21C11E552C81F239002A7411 /* ModelContext.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,7 +224,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2113508A2BCF504A0007CBBA /* CircleView.swift in Sources */,
+				21C11E562C81F239002A7411 /* ModelContext.swift in Sources */,
 				214462FB2BC96FF300C29F51 /* MemoCreateView.swift in Sources */,
+				21C11E532C81F215002A7411 /* SDMemoModel.swift in Sources */,
 				214462F92BC96FF300C29F51 /* NC1App.swift in Sources */,
 				211350802BCE2CC00007CBBA /* EmotionView.swift in Sources */,
 				214463152BCB041600C29F51 /* CurrentDateView.swift in Sources */,
