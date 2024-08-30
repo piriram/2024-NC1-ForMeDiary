@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-struct RootView: View {
+struct OldRootView: View {
     @EnvironmentObject var memo : MemoViewModel
     @StateObject var memoViewModel = MemoViewModel()
     var body: some View {
         
         NavigationView {
             ZStack {
-                EmotionMainView()
+                OldEmotionMainView()
                 VStack {
                     
                     HStack {
                         Spacer()
-                        NavigationLink(destination: AllListView()){
+                        NavigationLink(destination: OldAllListView()){
                             Text("See all")
                                 .padding()
                         }
@@ -27,7 +27,7 @@ struct RootView: View {
                     Spacer()
                     
                     Spacer()
-                    NavigationLink(destination: MemoCreateView()) {
+                    NavigationLink(destination: OldMemoCreateView()) {
                         Image("마스터볼")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -51,5 +51,5 @@ struct RootView: View {
 }
 
 #Preview {
-    RootView()
+    OldRootView()
 }

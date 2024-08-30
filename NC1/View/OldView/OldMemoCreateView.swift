@@ -7,7 +7,7 @@
 
 import SwiftUI
 var static_num = 5
-struct MemoCreateView: View {
+struct OldMemoCreateView: View {
     @State var content:String = ""
     @EnvironmentObject var memoViewModel : MemoViewModel
     @Environment(\.presentationMode) var presentationMode
@@ -19,8 +19,8 @@ struct MemoCreateView: View {
     
     var body: some View {
         VStack() {
-            CurrentDateView(dateString: $memoViewModel.tmpMemo.memo_date)
-            EmotionView(emotion_num: $emotion_num)
+            OldCurrentDateView(dateString: $memoViewModel.tmpMemo.memo_date)
+            OldEmotionView(emotion_num: $emotion_num)
                 .frame(height: 120)
                 .padding(.vertical)
 
@@ -76,7 +76,7 @@ struct MemoCreateView: View {
         self.memoViewModel.tmpMemo.emotion = String(emotion_num)
         print(memoViewModel.tmpMemo)
         memoViewModel.memoHistory.append(memoViewModel.tmpMemo)
-        memoViewModel.tmpMemo = MemoModel(content: "")
+        memoViewModel.tmpMemo = OldMemoModel(content: "")
         
     }
 

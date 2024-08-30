@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct MemoUpdateView: View {
+struct OldMemoUpdateView: View {
     
     @EnvironmentObject var memoViewModel: MemoViewModel
     @Environment(\.presentationMode) var presentationMode
-    @State var memo: MemoModel
+    @State var memo: OldMemoModel
     @State var showingAlert = false
     @State var editedMemo = ""
     @State var emotion_num = static_num
     
     var body: some View {
         VStack() {
-            CurrentDateView(dateString: $memo.memo_date)
+            OldCurrentDateView(dateString: $memo.memo_date)
             TextEditor(text: $editedMemo)
                 .lineSpacing(10)
                 .disableAutocorrection(true)
@@ -29,7 +29,7 @@ struct MemoUpdateView: View {
                 .frame(maxHeight:300)
                 .padding(.vertical)
             
-            EmotionView(emotion_num: $emotion_num)
+            OldEmotionView(emotion_num: $emotion_num)
             Spacer()
             
             Button(action: {

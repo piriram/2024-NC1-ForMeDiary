@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct CircleView: View {
+struct OldCircleView: View {
     let radiusScale: CGFloat
     let idx: Int
     @EnvironmentObject var memo:MemoViewModel
     
     var body: some View {
-        NavigationLink(destination: PartListView(emotion_num: idx)){
+        NavigationLink(destination: OldPartListView(emotion_num: idx)){
             ZStack {
                 if idx<static_num{
                     Image(memo.emojis[idx])

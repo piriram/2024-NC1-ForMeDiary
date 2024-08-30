@@ -9,18 +9,14 @@ import Foundation
 import SwiftData
 
 @Model
-final class SwiftDataModel{
-//    var id = UUID()
-    var memo_date: String? = nil
-    var emotion : String? = nil
+final class MemoModel{
+    var memo_date: String?
+    var emotion : String?
     var content: String = ""
     
-    init(memo_date: String?, emotion: String?, content: String) {
+    init(memo_date: String? = nil, emotion: String? = nil, content: String) {
         self.memo_date = memo_date
         self.emotion = emotion
         self.content = content
-        
     }
-    
-    
 }

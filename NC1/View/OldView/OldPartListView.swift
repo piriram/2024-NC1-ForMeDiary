@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct PartListView: View {
+struct OldPartListView: View {
     @EnvironmentObject var memoViewModel: MemoViewModel
-    @State var lll:[MemoModel] = []
+    @State var lll:[OldMemoModel] = []
     var emotion_num = static_num
-    @State var ttt : [(String, [MemoModel])] = []
+    @State var ttt : [(String, [OldMemoModel])] = []
    
     
     var body: some View {
@@ -19,7 +19,7 @@ struct PartListView: View {
             ForEach(ttt, id: \.0) { date, memos in
                 Section(header: Text(formatSectionHeader(dateString: date))) {
                     ForEach(memos) { memo in
-                        NavigationLink(destination: MemoUpdateView(memo: memo)) {
+                        NavigationLink(destination: OldMemoUpdateView(memo: memo)) {
                             Text(memo.content)
 //                            Text("id:\(memo.id)")
                         }
@@ -68,7 +68,7 @@ struct PartListView: View {
             memoViewModel.memoHistory.remove(at: first)
         }
     }
-    private var groupedMemoHistory: [(String, [MemoModel])] {
+    private var groupedMemoHistory: [(String, [OldMemoModel])] {
         let groupedMemos = Dictionary(grouping: lll) { memo in
             formatDate(dateString: memo.memo_date)
         }

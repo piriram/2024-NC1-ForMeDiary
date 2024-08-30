@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EmotionMainView: View {
+struct OldEmotionMainView: View {
     @EnvironmentObject var memoViewModel: MemoViewModel
     @State private var emotionCounts: [String: Int] = [:]
 
@@ -22,7 +22,7 @@ struct EmotionMainView: View {
                     ForEach(emotionCounts.sorted(by: { $0.value > $1.value }), id: \.key) { emotion, count in
                         
                         
-                        CircleView(radiusScale: CGFloat(count), idx: Int(emotion) ?? static_num)
+                        OldCircleView(radiusScale: CGFloat(count), idx: Int(emotion) ?? static_num)
                         
                     }
                     
@@ -44,7 +44,7 @@ struct EmotionMainView: View {
 }
 
 #Preview {
-    EmotionMainView()
+    OldEmotionMainView()
 }
 
 

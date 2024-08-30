@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EmotionView: View {
+struct OldEmotionView: View {
     @Binding var emotion_num:Int
     let emojis = ["피카츄", "파이리", "꼬북이", "이상해씨"]
     @EnvironmentObject var memoViewModel : MemoViewModel

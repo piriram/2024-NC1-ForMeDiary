@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AllListView: View {
+struct OldAllListView: View {
     @EnvironmentObject var memoViewModel: MemoViewModel
     
     var body: some View {
@@ -15,7 +15,7 @@ struct AllListView: View {
             ForEach(memoViewModel.groupedMemoHistory, id: \.0) { date, memos in
                 Section(header: Text(memoViewModel.formatSectionHeader(dateString: date))) {
                     ForEach(memos,id: \.self) { memo in
-                        NavigationLink(destination: MemoUpdateView(memo: memo)) {
+                        NavigationLink(destination: OldMemoUpdateView(memo: memo)) {
                             Text(memo.content)
                         }
                         

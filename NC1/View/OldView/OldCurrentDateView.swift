@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CurrentDateView: View {
+struct OldCurrentDateView: View {
     @Binding var dateString: String?
     @State var formattedDate:String?
         

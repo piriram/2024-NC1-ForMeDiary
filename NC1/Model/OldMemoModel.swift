@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MemoModel:Hashable, Identifiable ,Codable {
+struct OldMemoModel:Hashable, Identifiable ,Codable {
     var id = UUID()
     var memo_date: String?
     var emotion : String?
@@ -16,12 +16,12 @@ struct MemoModel:Hashable, Identifiable ,Codable {
 }
 
 class MemoViewModel:ObservableObject{
-    @Published var tmpMemo : MemoModel = MemoModel(content: "")
-    @Published var memoHistory : [MemoModel] = []
+    @Published var tmpMemo : OldMemoModel = OldMemoModel(content: "")
+    @Published var memoHistory : [OldMemoModel] = []
     
     
     let emojis = ["피카츄", "파이리", "꼬북이", "이상해씨"]
-    func filterMemosByEmotion(emotion: String) -> [MemoModel] {
+    func filterMemosByEmotion(emotion: String) -> [OldMemoModel] {
             return memoHistory.filter { $0.emotion == emotion }
         }
     func countEmotionOccurrences() -> [String: Int] {
@@ -38,7 +38,7 @@ class MemoViewModel:ObservableObject{
             memoHistory.remove(at: first)
         }
     }
-    var groupedMemoHistory: [(String, [MemoModel])] {
+    var groupedMemoHistory: [(String, [OldMemoModel])] {
         let groupedMemos = Dictionary(grouping: memoHistory) { memo in
             formatDate(dateString: memo.memo_date)
         }
@@ -120,7 +120,7 @@ class MemoViewModel:ObservableObject{
                 memoHistory = []
                 
                 // 디코딩된 메모 데이터를 MemoViewModel의 memoHistory에 추가
-                memoHistory = try decoder.decode([MemoModel].self, from: fileData)
+                memoHistory = try decoder.decode([OldMemoModel].self, from: fileData)
                 
                 
             } catch {

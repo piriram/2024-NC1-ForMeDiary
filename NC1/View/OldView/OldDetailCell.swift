@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DetailCell: View {
+struct OldDetailCell: View {
     @State var content:String = ""
     @EnvironmentObject var memoViewModel : MemoViewModel
     @Environment(\.presentationMode) var presentationMode
@@ -15,7 +15,7 @@ struct DetailCell: View {
     @State var emotion_num = static_num
     var body: some View {
         VStack(spacing:60) {
-            CurrentDateView(dateString: $memoViewModel.tmpMemo.memo_date)
+            OldCurrentDateView(dateString: $memoViewModel.tmpMemo.memo_date)
 
             TextEditor(text: $memoViewModel.tmpMemo.content)
                 .lineSpacing(10)
