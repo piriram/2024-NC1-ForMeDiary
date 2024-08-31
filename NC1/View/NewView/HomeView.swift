@@ -47,8 +47,3 @@ struct HomeView: View {
         }
     }
 }
-
-#Preview {
-    OldRootView()
-}
-

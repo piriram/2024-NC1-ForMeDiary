@@ -17,7 +17,7 @@ struct NewMemoUpdateView: View {
     
     var body: some View {
         VStack {
-            OldCurrentDateView(dateString: $memo.memo_date)
+            NewCurrentDateView(dateString: $memo.memo_date)
             TextEditor(text: $editedMemo)
                 .lineSpacing(10)
                 .disableAutocorrection(true)
@@ -28,7 +28,7 @@ struct NewMemoUpdateView: View {
                 .frame(maxHeight: 300)
                 .padding(.vertical)
             
-            OldEmotionView(emotion_num: $emotion_num)
+            NewEmotionView(emotion_num: $emotion_num)
             Spacer()
             
             Button(action: {
