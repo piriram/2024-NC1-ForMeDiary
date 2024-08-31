@@ -24,13 +24,16 @@
 		21C11E532C81F215002A7411 /* SDMemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E522C81F215002A7411 /* SDMemoModel.swift */; };
 		21C11E562C81F239002A7411 /* ModelContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E552C81F239002A7411 /* ModelContext.swift */; };
 		21C11E5B2C81F3A0002A7411 /* ViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E5A2C81F3A0002A7411 /* ViewModelTest.swift */; };
-		21C11E5D2C81F6ED002A7411 /* NewRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E5C2C81F6ED002A7411 /* NewRootView.swift */; };
+		21C11E5D2C81F6ED002A7411 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E5C2C81F6ED002A7411 /* HomeView.swift */; };
 		21C11E5F2C81F7FC002A7411 /* NewMemoCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E5E2C81F7FC002A7411 /* NewMemoCreateView.swift */; };
 		21C11E612C81F989002A7411 /* NewEmotionMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E602C81F989002A7411 /* NewEmotionMainView.swift */; };
 		21C11E632C81FA8D002A7411 /* NewPartListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E622C81FA8D002A7411 /* NewPartListView.swift */; };
 		21C11E672C82ED47002A7411 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E662C82ED47002A7411 /* DateFormatterManager.swift */; };
 		21C11E692C82EFCD002A7411 /* NewAllListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E682C82EFCD002A7411 /* NewAllListView.swift */; };
 		21C11E6B2C82F1EC002A7411 /* NewMemoUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E6A2C82F1EC002A7411 /* NewMemoUpdateView.swift */; };
+		21C11E6D2C82F44E002A7411 /* NewCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E6C2C82F44E002A7411 /* NewCircleView.swift */; };
+		21C11E6F2C82F47C002A7411 /* NewEmotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E6E2C82F47C002A7411 /* NewEmotionView.swift */; };
+		21C11E712C82F4BA002A7411 /* NewCurrentDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E702C82F4BA002A7411 /* NewCurrentDateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,13 +56,16 @@
 		21C11E522C81F215002A7411 /* SDMemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDMemoModel.swift; sourceTree = "<group>"; };
 		21C11E552C81F239002A7411 /* ModelContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContext.swift; sourceTree = "<group>"; };
 		21C11E5A2C81F3A0002A7411 /* ViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTest.swift; sourceTree = "<group>"; };
-		21C11E5C2C81F6ED002A7411 /* NewRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRootView.swift; sourceTree = "<group>"; };
+		21C11E5C2C81F6ED002A7411 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		21C11E5E2C81F7FC002A7411 /* NewMemoCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemoCreateView.swift; sourceTree = "<group>"; };
 		21C11E602C81F989002A7411 /* NewEmotionMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEmotionMainView.swift; sourceTree = "<group>"; };
 		21C11E622C81FA8D002A7411 /* NewPartListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPartListView.swift; sourceTree = "<group>"; };
 		21C11E662C82ED47002A7411 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
 		21C11E682C82EFCD002A7411 /* NewAllListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAllListView.swift; sourceTree = "<group>"; };
 		21C11E6A2C82F1EC002A7411 /* NewMemoUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemoUpdateView.swift; sourceTree = "<group>"; };
+		21C11E6C2C82F44E002A7411 /* NewCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCircleView.swift; sourceTree = "<group>"; };
+		21C11E6E2C82F47C002A7411 /* NewEmotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEmotionView.swift; sourceTree = "<group>"; };
+		21C11E702C82F4BA002A7411 /* NewCurrentDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCurrentDateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,11 +157,14 @@
 			isa = PBXGroup;
 			children = (
 				21C11E682C82EFCD002A7411 /* NewAllListView.swift */,
+				21C11E6C2C82F44E002A7411 /* NewCircleView.swift */,
+				21C11E702C82F4BA002A7411 /* NewCurrentDateView.swift */,
 				21C11E602C81F989002A7411 /* NewEmotionMainView.swift */,
+				21C11E6E2C82F47C002A7411 /* NewEmotionView.swift */,
 				21C11E5E2C81F7FC002A7411 /* NewMemoCreateView.swift */,
 				21C11E6A2C82F1EC002A7411 /* NewMemoUpdateView.swift */,
 				21C11E622C81FA8D002A7411 /* NewPartListView.swift */,
-				21C11E5C2C81F6ED002A7411 /* NewRootView.swift */,
+				21C11E5C2C81F6ED002A7411 /* HomeView.swift */,
 			);
 			path = NewView;
 			sourceTree = "<group>";
@@ -251,10 +260,12 @@
 				21C11E562C81F239002A7411 /* ModelContext.swift in Sources */,
 				21C11E632C81FA8D002A7411 /* NewPartListView.swift in Sources */,
 				214462FB2BC96FF300C29F51 /* OldMemoCreateView.swift in Sources */,
+				21C11E6D2C82F44E002A7411 /* NewCircleView.swift in Sources */,
 				21C11E532C81F215002A7411 /* SDMemoModel.swift in Sources */,
 				21C11E692C82EFCD002A7411 /* NewAllListView.swift in Sources */,
+				21C11E6F2C82F47C002A7411 /* NewEmotionView.swift in Sources */,
 				214462F92BC96FF300C29F51 /* NC1App.swift in Sources */,
-				21C11E5D2C81F6ED002A7411 /* NewRootView.swift in Sources */,
+				21C11E5D2C81F6ED002A7411 /* HomeView.swift in Sources */,
 				21C11E612C81F989002A7411 /* NewEmotionMainView.swift in Sources */,
 				211350802BCE2CC00007CBBA /* OldEmotionView.swift in Sources */,
 				21C11E5B2C81F3A0002A7411 /* ViewModelTest.swift in Sources */,
@@ -265,6 +276,7 @@
 				21C11E672C82ED47002A7411 /* DateFormatterManager.swift in Sources */,
 				21C11E5F2C81F7FC002A7411 /* NewMemoCreateView.swift in Sources */,
 				211350882BCEE73F0007CBBA /* OldAllListView.swift in Sources */,
+				21C11E712C82F4BA002A7411 /* NewCurrentDateView.swift in Sources */,
 				214463132BCAFBF500C29F51 /* OldMemoUpdateView.swift in Sources */,
 				211350822BCE2E130007CBBA /* OldDetailCell.swift in Sources */,
 				2144630F2BCAF2C400C29F51 /* OldRootView.swift in Sources */,

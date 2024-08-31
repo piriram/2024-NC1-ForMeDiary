@@ -46,7 +46,7 @@ struct NewMemoUpdateView: View {
                     showingAlert = true
                 }
             }, label: {
-                Text("Save")
+                Text("저장")
                     .padding(.vertical, 10)
                     .padding(.horizontal, 50)
                     .font(Font.system(size: 25, weight: .bold, design: .serif))

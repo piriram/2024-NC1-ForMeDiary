@@ -17,7 +17,7 @@ struct NewEmotionMainView: View {
             Spacer()
             HStack {
                 ForEach(emotionCounts.sorted(by: { $0.value > $1.value }), id: \.key) { emotion, count in
-                    OldCircleView(radiusScale: CGFloat(count), idx: Int(emotion) ?? static_num)
+                    NewCircleView(radiusScale: CGFloat(count), idx: Int(emotion) ?? static_num)
                 }
             }
             .padding(.horizontal)

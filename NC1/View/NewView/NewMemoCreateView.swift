@@ -4,7 +4,6 @@
 //
 //  Created by ram on 8/30/24.
 //
-
 import SwiftUI
 import SwiftData
 
@@ -17,14 +16,45 @@ struct NewMemoCreateView: View {
     @State private var showingAlert1 = false
     @State private var showingAlert2 = false
     @State private var emotion_num = static_num
-    
+
+    let emojis = ["피카츄", "파이리", "꼬북이", "이상해씨"]
+
     var body: some View {
         VStack {
-            OldCurrentDateView(dateString: .constant(getCurrentDate()))
-            OldEmotionView(emotion_num: $emotion_num)
-                .frame(height: 120)
-                .padding(.vertical)
-            
+            HStack(alignment: .top) {
+                Spacer()
+                Image(systemName: "calendar")
+                Text("Today")
+                    .font(Font.custom("Manrope", size: 18))
+                    .foregroundColor(.black)
+                Spacer()
+            }
+            .background(.white)
+            .cornerRadius(20)
+
+            HStack() {
+                ForEach(emojis.indices, id: \.self) { index in
+                    Button(action: {
+                        self.emotion_num = index // emotion_num을 해당 emoji의 index로 설정
+                    }) {
+                        if emotion_num == index {
+                            Image(self.emojis[index])
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 150)
+                        } else {
+                            Image(self.emojis[index])
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 100)
+                                .padding()
+                        }
+                    }
+                }
+            }
+            .frame(height: 120)
+            .padding(.vertical)
+
             TextEditor(text: $content)
                 .lineSpacing(10)
                 .disableAutocorrection(true)
@@ -33,9 +63,9 @@ struct NewMemoCreateView: View {
                         .stroke(Color.gray, lineWidth: 1)
                 )
                 .padding(.vertical)
-            
+
             Button(action: saveData) {
-                Text("Save")
+                Text("저장")
                     .padding(.vertical, 10)
                     .padding(.horizontal, 50)
                     .font(Font.system(size: 25, weight: .bold, design: .serif))
@@ -77,5 +107,3 @@ struct NewMemoCreateView: View {
         return dateFormatter.string(from: Date())
     }
 }
-
-

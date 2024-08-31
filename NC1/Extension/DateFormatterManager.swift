@@ -4,7 +4,6 @@
 //
 //  Created by ram on 8/31/24.
 //
-
 import Foundation
 
 final class DateFormatterManager {
@@ -12,27 +11,27 @@ final class DateFormatterManager {
     
     private init() {}
     
-    let fullDateFormatter1: DateFormatter = {
+    private let fullDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return formatter
     }()
     
-    let shortDateFormatter1: DateFormatter = {
+    private let shortDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter
     }()
     
     func formatFullDate(dateString: String?) -> String {
-        guard let dateString = dateString, let date = fullDateFormatter1.date(from: dateString) else {
+        guard let dateString = dateString, let date = fullDateFormatter.date(from: dateString) else {
             return ""
         }
-        return shortDateFormatter1.string(from: date)
+        return shortDateFormatter.string(from: date)
     }
     
     func formatSectionHeader(dateString: String) -> String {
-        guard let date = shortDateFormatter1.date(from: dateString) else {
+        guard let date = shortDateFormatter.date(from: dateString) else {
             return dateString
         }
         
@@ -46,5 +45,23 @@ final class DateFormatterManager {
         } else {
             return dateString
         }
+    }
+    
+    func convertStringToDateAndFormat(string: String, fromFormat: String, toFormat: String) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = fromFormat
+        
+        guard let date = dateFormatter.date(from: string) else {
+            // 문자열을 날짜로 변환하는 데 실패하면 nil 반환
+            return nil
+        }
+        
+        dateFormatter.dateFormat = toFormat
+        return dateFormatter.string(from: date)
+    }
+    func getCurrentDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.string(from: Date())
     }
 }

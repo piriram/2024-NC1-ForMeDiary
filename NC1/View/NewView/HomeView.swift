@@ -9,17 +9,16 @@
 import SwiftUI
 import SwiftData
 
-struct NewRootView: View {
+struct HomeView: View {
     @EnvironmentObject var memo : MemoViewModel
     @StateObject var memoViewModel = MemoViewModel()
     @Environment(\.modelContext) var modelContext:ModelContext
+    
     var body: some View {
-        
         NavigationView {
             ZStack {
                 NewEmotionMainView()
                 VStack {
-                    
                     HStack {
                         Spacer()
                         NavigationLink(destination: NewAllListView()){
@@ -28,7 +27,6 @@ struct NewRootView: View {
                         }
                     }
                     Spacer()
-                    
                     Spacer()
                     NavigationLink(destination: NewMemoCreateView()) {
                         Image("마스터볼")
