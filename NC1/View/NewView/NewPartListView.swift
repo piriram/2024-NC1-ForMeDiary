@@ -17,7 +17,7 @@ struct NewPartListView: View {
     var body: some View {
         List {
             ForEach(groupedMemos, id: \.0) { date, memos in
-                Section(header: Text(formatSectionHeader(dateString: date))) {
+                Section(header: Text(DateFormatterManager.shared.formatSectionHeader(dateString: date))) {
                     ForEach(memos) { memo in
                         NavigationLink(destination: NewMemoUpdateView(memo: memo)) {
                             Text(memo.content)
@@ -58,7 +58,7 @@ struct NewPartListView: View {
         let sortedMemos = filteredMemos.sorted { ($0.memo_date ?? "") > ($1.memo_date ?? "") }
         
         let groupedDict = Dictionary(grouping: sortedMemos) { memo in
-            formatDate(dateString: memo.memo_date)
+            DateFormatterManager.shared.formatFullDate(dateString: memo.memo_date)
         }
         groupedMemos = groupedDict.sorted { $0.key > $1.key }
         
@@ -67,30 +67,4 @@ struct NewPartListView: View {
             print("Debug: Section \(key) has \(value.count) memos") // 각 섹션의 메모 수 출력
         }
     }
-    
-    private func formatDate(dateString: String?) -> String {
-        guard let dateString = dateString else { return "" }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let date = dateFormatter.date(from: dateString)
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.string(from: date ?? Date())
-    }
-    
-    private func formatSectionHeader(dateString: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let date = dateFormatter.date(from: dateString) ?? Date()
-        let today = Calendar.current.startOfDay(for: Date())
-        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: today)!
-        if Calendar.current.isDate(date, inSameDayAs: today) {
-            return "Today"
-        } else if Calendar.current.isDate(date, inSameDayAs: yesterday) {
-            return "Yesterday"
-        } else {
-            return dateString
-        }
-    }
 }
-
-

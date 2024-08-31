@@ -22,8 +22,8 @@ struct NewRootView: View {
                     
                     HStack {
                         Spacer()
-                        NavigationLink(destination: OldAllListView()){
-                            Text("See all")
+                        NavigationLink(destination: NewAllListView()){
+                            Text("모두 보기")
                                 .padding()
                         }
                     }
