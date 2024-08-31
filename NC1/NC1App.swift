@@ -14,7 +14,7 @@ struct NC1App: App {
 
     var body: some Scene {
         WindowGroup {
-            OldRootView()
+            NewRootView()
                 .environmentObject(memo)
                 .modelContainer(for: [MemoModel.self]) // 모델 컨테이너 설정
         }

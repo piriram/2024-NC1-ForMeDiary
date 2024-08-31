@@ -68,22 +68,13 @@ struct OldMemoUpdateView: View {
             editedMemo = memo.content
         }
         .padding()
-        //        .navigationBarTitle("상세보기")
         .alert(isPresented: $showingAlert) {
             Alert(title: Text("내용을 입력해주세요."), message: nil,
                   dismissButton: .default(Text("넹")))
         }
         
     }
-    //    func saveData(){
-    //        memo.emotion = String(emotion_num)
-    //        if let index = memoViewModel.memoHistory.firstIndex(where: { $0.id == memo.id }) {
-    //            memoViewModel.memoHistory[index].
-    //        }
-    //        else{
-    //            print("어라")
-    //        }
-    //    }
+
 }
 
 

@@ -13,7 +13,7 @@ struct OldCircleView: View {
     @EnvironmentObject var memo:MemoViewModel
     
     var body: some View {
-        NavigationLink(destination: OldPartListView(emotion_num: idx)){
+        NavigationLink(destination: NewPartListView(emotion_num: idx)){
             ZStack {
                 if idx<static_num{
                     Image(memo.emojis[idx])

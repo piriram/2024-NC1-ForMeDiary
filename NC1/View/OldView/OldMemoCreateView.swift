@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-var static_num = 5
+
 struct OldMemoCreateView: View {
     @State var content:String = ""
     @EnvironmentObject var memoViewModel : MemoViewModel
@@ -79,8 +79,6 @@ struct OldMemoCreateView: View {
         memoViewModel.tmpMemo = OldMemoModel(content: "")
         
     }
-
-
 }
 
 

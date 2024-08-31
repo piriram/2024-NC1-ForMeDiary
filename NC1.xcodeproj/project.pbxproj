@@ -24,6 +24,11 @@
 		21C11E532C81F215002A7411 /* SDMemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E522C81F215002A7411 /* SDMemoModel.swift */; };
 		21C11E562C81F239002A7411 /* ModelContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E552C81F239002A7411 /* ModelContext.swift */; };
 		21C11E5B2C81F3A0002A7411 /* ViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E5A2C81F3A0002A7411 /* ViewModelTest.swift */; };
+		21C11E5D2C81F6ED002A7411 /* NewRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E5C2C81F6ED002A7411 /* NewRootView.swift */; };
+		21C11E5F2C81F7FC002A7411 /* NewMemoCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E5E2C81F7FC002A7411 /* NewMemoCreateView.swift */; };
+		21C11E612C81F989002A7411 /* NewEmotionMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E602C81F989002A7411 /* NewEmotionMainView.swift */; };
+		21C11E632C81FA8D002A7411 /* NewPartListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E622C81FA8D002A7411 /* NewPartListView.swift */; };
+		21C11E652C82EC8E002A7411 /* NewMemoUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E642C82EC8E002A7411 /* NewMemoUpdateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +51,11 @@
 		21C11E522C81F215002A7411 /* SDMemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDMemoModel.swift; sourceTree = "<group>"; };
 		21C11E552C81F239002A7411 /* ModelContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContext.swift; sourceTree = "<group>"; };
 		21C11E5A2C81F3A0002A7411 /* ViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTest.swift; sourceTree = "<group>"; };
+		21C11E5C2C81F6ED002A7411 /* NewRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRootView.swift; sourceTree = "<group>"; };
+		21C11E5E2C81F7FC002A7411 /* NewMemoCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemoCreateView.swift; sourceTree = "<group>"; };
+		21C11E602C81F989002A7411 /* NewEmotionMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEmotionMainView.swift; sourceTree = "<group>"; };
+		21C11E622C81FA8D002A7411 /* NewPartListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPartListView.swift; sourceTree = "<group>"; };
+		21C11E642C82EC8E002A7411 /* NewMemoUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemoUpdateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +146,11 @@
 		21C11E512C81F1C7002A7411 /* NewView */ = {
 			isa = PBXGroup;
 			children = (
+				21C11E5C2C81F6ED002A7411 /* NewRootView.swift */,
+				21C11E5E2C81F7FC002A7411 /* NewMemoCreateView.swift */,
+				21C11E602C81F989002A7411 /* NewEmotionMainView.swift */,
+				21C11E622C81FA8D002A7411 /* NewPartListView.swift */,
+				21C11E642C82EC8E002A7411 /* NewMemoUpdateView.swift */,
 			);
 			path = NewView;
 			sourceTree = "<group>";
@@ -228,16 +243,21 @@
 			files = (
 				2113508A2BCF504A0007CBBA /* OldCircleView.swift in Sources */,
 				21C11E562C81F239002A7411 /* ModelContext.swift in Sources */,
+				21C11E632C81FA8D002A7411 /* NewPartListView.swift in Sources */,
 				214462FB2BC96FF300C29F51 /* OldMemoCreateView.swift in Sources */,
 				21C11E532C81F215002A7411 /* SDMemoModel.swift in Sources */,
 				214462F92BC96FF300C29F51 /* NC1App.swift in Sources */,
+				21C11E5D2C81F6ED002A7411 /* NewRootView.swift in Sources */,
+				21C11E612C81F989002A7411 /* NewEmotionMainView.swift in Sources */,
 				211350802BCE2CC00007CBBA /* OldEmotionView.swift in Sources */,
 				21C11E5B2C81F3A0002A7411 /* ViewModelTest.swift in Sources */,
 				214463152BCB041600C29F51 /* OldCurrentDateView.swift in Sources */,
 				211350862BCEE2D30007CBBA /* OldEmotionMainView.swift in Sources */,
 				214463112BCAF86100C29F51 /* OldPartListView.swift in Sources */,
+				21C11E5F2C81F7FC002A7411 /* NewMemoCreateView.swift in Sources */,
 				211350882BCEE73F0007CBBA /* OldAllListView.swift in Sources */,
 				214463132BCAFBF500C29F51 /* OldMemoUpdateView.swift in Sources */,
+				21C11E652C82EC8E002A7411 /* NewMemoUpdateView.swift in Sources */,
 				211350822BCE2E130007CBBA /* OldDetailCell.swift in Sources */,
 				2144630F2BCAF2C400C29F51 /* OldRootView.swift in Sources */,
 				214463092BC971A900C29F51 /* OldMemoModel.swift in Sources */,
