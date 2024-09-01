@@ -21,6 +21,8 @@ struct NewPartListView: View {
                     ForEach(memos) { memo in
                         NavigationLink(destination: NewMemoUpdateView(memo: memo)) {
                             Text(memo.content)
+                                .lineLimit(1) // 첫 줄만 표시되도록 설정
+                                
                         }
                     }
                     .onDelete { indices in

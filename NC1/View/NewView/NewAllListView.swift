@@ -18,6 +18,7 @@ struct NewAllListView: View {
                     ForEach(memos, id: \.self) { memo in
                         NavigationLink(destination: NewMemoUpdateView(memo: memo)) {
                             Text(memo.content)
+                                .lineLimit(1)
                         }
                     }
                     .onDelete(perform: { indexSet in
