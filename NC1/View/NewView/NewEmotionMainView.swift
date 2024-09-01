@@ -5,6 +5,7 @@
 //  Created by ram on 8/30/24.
 //
 
+
 import SwiftUI
 import SwiftData
 
@@ -12,7 +13,8 @@ struct NewEmotionMainView: View {
     @Query private var memos: [MemoModel]
     @State private var emotionCounts: [String: Int] = [:]
     @EnvironmentObject var memo: MemoViewModel
-    
+    @Binding var shouldUpdate: Bool  // 업데이트 여부를 감시하는 바인딩 변수
+
     var body: some View {
         VStack {
             Spacer()
@@ -43,6 +45,9 @@ struct NewEmotionMainView: View {
             Spacer()
         }
         .onAppear {
+            updateEmotionCounts()
+        }
+        .onChange(of: shouldUpdate) { _ in
             updateEmotionCounts()
         }
     }

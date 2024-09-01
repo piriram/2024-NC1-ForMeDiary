@@ -14,11 +14,12 @@ struct NewMemoCreateView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var content: String = ""
     @State private var showingAlert1 = false
-    @State private var showingAlert2 = false
+    @State private var showingAlert2 = false // "저장되었습니다" 알림을 위한 상태 변수
     @State private var emotion_num = static_num
-
+    @Binding var shouldUpdate: Bool  // 업데이트 여부를 감시하는 바인딩 변수
+    
     let emojis = ["피카츄", "파이리", "꼬북이", "이상해씨"]
-
+    
     var body: some View {
         VStack {
             HStack(alignment: .top) {
@@ -31,7 +32,7 @@ struct NewMemoCreateView: View {
             }
             .background(.white)
             .cornerRadius(20)
-
+            
             HStack() {
                 ForEach(emojis.indices, id: \.self) { index in
                     Button(action: {
@@ -54,7 +55,7 @@ struct NewMemoCreateView: View {
             }
             .frame(height: 120)
             .padding(.vertical)
-
+            
             TextEditor(text: $content)
                 .lineSpacing(10)
                 .disableAutocorrection(true)
@@ -63,7 +64,7 @@ struct NewMemoCreateView: View {
                         .stroke(Color.gray, lineWidth: 1)
                 )
                 .padding(.vertical)
-
+            
             Button(action: saveData) {
                 Text("저장")
                     .padding(.vertical, 10)
@@ -79,20 +80,26 @@ struct NewMemoCreateView: View {
             Alert(title: Text("내용을 입력해주세요."), message: nil,
                   dismissButton: .default(Text("넹")))
         }
+        .alert(isPresented: $showingAlert2) {
+            Alert(title: Text("저장되었습니다."), message: nil,
+                  dismissButton: .default(Text("확인")))
+        }
         .navigationBarTitleDisplayMode(.inline)
     }
     
     private func saveData() {
         if !content.isEmpty || emotion_num != static_num {
             let newMemo = MemoModel(
-                memo_date: getCurrentDate(),
+                memo_date: DateFormatterManager.shared.getCurrentDate(),
                 emotion: String(emotion_num),
                 content: content
             )
             modelContext.insert(newMemo)
             do {
                 try modelContext.save()
-                dismiss()
+                shouldUpdate = true // NewEmotionMainView에 업데이트 알림
+                resetForm() // 폼 데이터 초기화
+                showingAlert2 = true // "저장되었습니다" 알림 표시
             } catch {
                 print("메모 저장 중 오류 발생: \(error)")
             }
@@ -100,10 +107,12 @@ struct NewMemoCreateView: View {
             showingAlert1 = true
         }
     }
-    
-    private func getCurrentDate() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        return dateFormatter.string(from: Date())
+
+    private func resetForm() {
+        // 폼 데이터 초기화
+        content = ""
+        emotion_num = static_num
     }
+    
+    
 }

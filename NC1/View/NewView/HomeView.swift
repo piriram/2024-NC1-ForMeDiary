@@ -13,11 +13,12 @@ struct HomeView: View {
     @EnvironmentObject var memo : MemoViewModel
     @StateObject var memoViewModel = MemoViewModel()
     @Environment(\.modelContext) var modelContext:ModelContext
+    @State private var shouldUpdate: Bool = false
     
     var body: some View {
         NavigationView {
             ZStack {
-                NewEmotionMainView()
+                NewEmotionMainView(shouldUpdate: $shouldUpdate)
                 VStack {
                     HStack {
                         Spacer()
@@ -28,7 +29,7 @@ struct HomeView: View {
                     }
                     Spacer()
                     Spacer()
-                    NavigationLink(destination: NewMemoCreateView()) {
+                    NavigationLink(destination: NewMemoCreateView(shouldUpdate: $shouldUpdate)) {
                         Image("마스터볼")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
